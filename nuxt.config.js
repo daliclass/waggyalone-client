@@ -11,6 +11,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
+    script: [
+      { src: '/js/fb-sdk.js' }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
@@ -23,6 +26,7 @@ export default {
   ** Global CSS
   */
   css: [
+    'bulma-social/bin/bulma-social.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
