@@ -19,21 +19,42 @@ export const mutations = {
   }
 }
 
+function createFacebookUser (facebookUser, commit, axios) {
+  axios.$post('/api/user/fb', facebookUser)
+    .then(function (user) {
+      commit('setUser', user)
+    })
+    .catch(function () {
+      commit('failedLogin')
+    })
+}
+
+function lookupUserFromFacebookUser (facebookUser, commit, axios) {
+  axios.$get('/api/user/fb/' + facebookUser.id, facebookUser)
+    .then(function (user) {
+      commit('setUser', user)
+    })
+    .catch(function () {
+      commit('failedLogin')
+    })
+}
+
 export const actions = {
-  continueWithFacebook (context) {
+  continueWithFacebook ({ commit }) {
+    const axios = this.$axios
     window.FB.getLoginStatus(function (response) {
       if (response.status === 'connected') {
-        window.FB.api('/me', { fields: 'id,first_name,last_name,name,email' }, function (response) {
-          context.commit('setUser', response)
+        window.FB.api('/me', { fields: 'id,first_name,last_name,name,email' }, function (facebookUser) {
+          lookupUserFromFacebookUser(facebookUser, commit, axios)
         })
       } else {
         window.FB.login(function (response) {
           if (response.status === 'connected') {
-            window.FB.api('/me', { fields: 'id,first_name,last_name,name,email' }, function (response) {
-              context.commit('setUser', response)
+            window.FB.api('/me', { fields: 'id,first_name,last_name,name,email' }, function (facebookUser) {
+              createFacebookUser(facebookUser, commit, axios)
             })
           } else {
-            context.commit('failedLogin')
+            commit('failedLogin')
           }
         }, { scope: 'public_profile,email' })
       }

@@ -3,3 +3,9 @@
     App
   </h1>
 </template>
+
+<script>
+export default {
+  middleware: ['authorization']
+}
+</script>

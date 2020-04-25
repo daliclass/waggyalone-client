@@ -42,11 +42,10 @@
             <p class="subtitle">
               Helping dog owners help there best friend overcome separation anxiety one step at a time
             </p>
-
-            <button v-if="loggedIn" class="button is-facebook" @click="continueWithFacebook">
-              Continue with Facebook
-            </button>
-            <button v-else class="button is-facebook" @click="continueWithFacebook">
+            <div v-if="userErrorAuthenticating" class="notification is-warning">
+              Oops.... this is embarrassing their was a problem with your log in please try again
+            </div>
+            <button v-if="!loggedIn" class="button is-facebook" @click="continueWithFacebook">
               Login with Facebook
             </button>
           </div>
@@ -62,6 +61,9 @@ export default {
   computed: {
     loggedIn () {
       return this.$store.state.authorization.loggedIn
+    },
+    userErrorAuthenticating () {
+      return this.$store.state.authorization.userErrorAuthenticating
     }
   },
   updated () {
