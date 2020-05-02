@@ -1,31 +1,6 @@
 <template>
   <section class="hero is-fullheight">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <p class="navbar-item">
-          <img src="~/assets/paw.png" alt="Sa coach logo" height="50">
-        </p>
-      </div>
-      <div class="navbar-end">
-        <router-link
-          to="/app"
-          class="button is-info is-inverted"
-          :disabled="!loggedIn"
-          @click="logout"
-        >
-          Go to app
-        </router-link>
-        <a
-          class="button is-info is-inverted"
-          disabled
-        >
-          Guides
-        </a>
-        <a v-if="loggedIn" class="button is-info is-inverted" href>
-          log out
-        </a>
-      </div>
-    </nav>
+    <Navbar />
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -57,26 +32,21 @@
 </template>
 
 <script>
+import Navbar from '../components/Navbar.vue'
+
 export default {
+  components: { Navbar },
   computed: {
-    loggedIn () {
-      return this.$store.state.authorization.loggedIn
-    },
     userErrorAuthenticating () {
       return this.$store.state.authorization.userErrorAuthenticating
-    }
-  },
-  updated () {
-    if (this.loggedIn) {
-      this.$router.push('/app')
+    },
+    loggedIn () {
+      return this.$store.state.authorization.loggedIn
     }
   },
   methods: {
     continueWithFacebook () {
       this.$store.dispatch('authorization/continueWithFacebook')
-    },
-    logout () {
-      this.$store.dispatch('authorization/logout')
     }
   }
 }
