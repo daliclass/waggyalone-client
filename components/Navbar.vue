@@ -20,12 +20,13 @@
       >
         Add dog
       </router-link>
-      <a
+      <router-link
+        to="/dog-course-preferences"
         class="button is-info is-inverted"
-        disabled
+        :disabled="!loggedIn"
       >
-        Guides
-      </a>
+        Course preferences
+      </router-link>
       <a v-if="loggedIn" class="button is-info is-inverted" @click="logout"> log out </a>
     </div>
   </nav>

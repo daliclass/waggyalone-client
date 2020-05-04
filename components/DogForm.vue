@@ -1,95 +1,78 @@
 <template>
   <section>
-    <div class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Tell us about your Dog
-          </h1>
-          <h2 class="subtitle">
-            So that we can give you and your furry companion the best experience we need to get to know a little bit about you both.
-          </h2>
-        </div>
+    <div class="field">
+      <div class="control">
+        <input
+          :class="[nameError ? 'is-info' : '', 'input is-medium']"
+          type="text"
+          placeholder="Name"
+          :value="dog.name"
+          @input="nameChanged"
+        >
       </div>
     </div>
-    </br>
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-12-mobile is-8-tablet is-10-desktop is-10-widescreen has-text-centered">
-          <div class="field">
-            <div class="control">
-              <input
-                :class="[nameError ? 'is-info' : '', 'input is-medium']"
-                type="text"
-                placeholder="Name"
-                :value="dog.name"
-                @input="nameChanged"
-              >
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input
-                :class="[birthMonthError ? 'is-info' : '', 'input is-medium']"
-                type="number"
-                min="1"
-                max="12"
-                placeholder="Birth month 1-12"
-                :value="dog.birthMonth"
-                @input="birthMonthChanged"
-              >
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input
-                :class="[birthYearError ? 'is-info' : '', 'input is-medium']"
-                type="number"
-                min="1990"
-                max="2050"
-                placeholder="Birth year ie 2006"
-                :value="dog.birthYear"
-                @input="birthYearChanged"
-              >
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <input
-                :class="[breedError ? 'is-info' : '', 'input is-medium']"
-                type="text"
-                placeholder="Breed"
-                :value="dog.breed"
-                @input="breedChanged"
-              >
-            </div>
-          </div>
-          <div class="control is-size-5">
-            What gender is your dog?
-            <label class="is-size-5">
-              <input type="radio" name="gender" value="MALE" @input="genderChanged" :checked="isMaleSelected">
-              Male
-            </label>
-            <label class="is-size-5">
-              <input type="radio" name="gender" value="FEMALE" @input="genderChanged" :checked="isFemaleSelected">
-              Female
-            </label>
-          </div>
-          </br>
-          <div v-show="showErrorMessage" class="notification is-info">
-            <p> We need to know a bit more about your dog please will in the highlighted fields </p>
-          </div>
-          <button class="button is-primary is-large is-outlined" @click="addDog">
-            Add dog
-          </button>
-        </div>
+    <div class="field">
+      <div class="control">
+        <input
+          :class="[birthMonthError ? 'is-info' : '', 'input is-medium']"
+          type="number"
+          min="1"
+          max="12"
+          placeholder="Birth month 1-12"
+          :value="dog.birthMonth"
+          @input="birthMonthChanged"
+        >
       </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input
+          :class="[birthYearError ? 'is-info' : '', 'input is-medium']"
+          type="number"
+          min="1990"
+          max="2050"
+          placeholder="Birth year ie 2006"
+          :value="dog.birthYear"
+          @input="birthYearChanged"
+        >
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input
+          :class="[breedError ? 'is-info' : '', 'input is-medium']"
+          type="text"
+          placeholder="Breed"
+          :value="dog.breed"
+          @input="breedChanged"
+        >
+      </div>
+    </div>
+    <SelectOption
+      key="gender"
+      question="What gender is your dog?"
+      :options="genderOptions"
+      :on-change="genderChanged"
+      :selected-value="dog.gender"
+    />
+    </br>
+    <div v-show="showErrorMessage" class="notification is-info">
+      <p> We need to know a bit more about your dog please will in the highlighted fields </p>
+    </div>
+    <button class="button is-primary is-large is-outlined" @click="addDog">
+      Add dog
+    </button>
+    </div>
+    </div>
     </div>
   </section>
 </template>
 
 <script>
+import SelectOption from '../components/SelectOption.vue'
+
 export default {
+  components: { SelectOption },
   props: {
     createDog: Function,
     dog: Object,
@@ -106,16 +89,11 @@ export default {
       birthYearError: false,
       breedError: false,
       genderError: false,
-      showErrorMessage: false
+      showErrorMessage: false,
+      genderOptions: [{ id: 1, name: 'Male', value: 'MALE' }, { id: 2, name: 'Female', value: 'FEMALE' }]
     }
   },
   computed: {
-    isMaleSelected () {
-      return this.dog.gender === 'MALE'
-    },
-    isFemaleSelected () {
-      return this.dog.gender === 'FEMALE'
-    }
   },
   methods: {
     nameChanged (updatedValue) {

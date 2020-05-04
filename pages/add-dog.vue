@@ -1,23 +1,36 @@
 <template>
   <section>
     <Navbar />
-    <DogForm
-      :dog="dog"
-      :create-dog="addDog"
-      :name-change="nameChange"
-      :birth-month-change="birthMonthChange"
-      :birth-year-change="birthYearChange"
-      :breed-change="breedChange"
-      :gender-change="genderChange"
+    <Hero
+      title="Tell us about your Dog"
+      subtitle="So that we can give you and your furry companion the best experience we need to get to know a little bit about you both."
     />
+    </br>
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-12-mobile is-8-tablet is-10-desktop is-10-widescreen has-text-centered">
+          <DogForm
+            :dog="dog"
+            :create-dog="addDog"
+            :name-change="nameChange"
+            :birth-month-change="birthMonthChange"
+            :birth-year-change="birthYearChange"
+            :breed-change="breedChange"
+            :gender-change="genderChange"
+          />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import Hero from '../components/Hero.vue'
 import DogForm from '../components/DogForm.vue'
+
 export default {
-  components: { Navbar, DogForm },
+  components: { Navbar, DogForm, Hero },
   data () {
     return {
       dog: {
@@ -35,7 +48,6 @@ export default {
       this.$router.push('/app')
     },
     nameChange (updatedValue) {
-      console.log(this.dog)
       this.dog.name = updatedValue
     },
     birthMonthChange (updatedValue) {
@@ -50,6 +62,7 @@ export default {
     genderChange (updatedValue) {
       this.dog.gender = updatedValue
     }
-  }
+  },
+  middleware: ['authorization']
 }
 </script>
