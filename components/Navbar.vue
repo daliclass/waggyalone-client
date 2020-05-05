@@ -47,6 +47,7 @@ export default {
   methods: {
     logout () {
       this.$store.dispatch('authorization/logout')
+      this.$router.push('/')
     }
   }
 }

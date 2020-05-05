@@ -38,23 +38,23 @@ export default {
   },
   methods: {
     addDog (dog) {
-      this.$store.dispatch('dog/add')
+      this.$store.dispatch('dog/add', dog)
       this.$router.push('/app')
     },
     nameChange (updatedValue) {
-      this.$store.dispatch('dog/setName', updatedValue)
+      this.dog.name = updatedValue
     },
     birthMonthChange (updatedValue) {
-      this.$store.dispatch('dog/setBirthMonth', updatedValue)
+      this.dog.birthMonth = updatedValue
     },
     birthYearChange (updatedValue) {
-      this.$store.dispatch('dog/setBirthYear', updatedValue)
+      this.dog.birthYear = updatedValue
     },
     breedChange (updatedValue) {
-      this.$store.dispatch('dog/setBreed', updatedValue)
+      this.dog.breed = updatedValue
     },
     genderChange (updatedValue) {
-      this.$store.dispatch('dog/setGender', updatedValue)
+      this.dog.gender = updatedValue
     }
   },
   middleware: ['authorization']

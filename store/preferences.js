@@ -14,6 +14,11 @@ export const mutations = {
   updateLeaveTraining (state, isSet) {
     state.leaveTraining = isSet
   },
+  set (state, preferences) {
+    state.denTraining = preferences.denTraining
+    state.preDepartureTraining = preferences.preDepartureTraining
+    state.leaveTraining = preferences.leaveTraining
+  },
   save (state, preferences) {
     state = preferences
   }

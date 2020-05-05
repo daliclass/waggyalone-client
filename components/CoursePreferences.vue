@@ -68,7 +68,7 @@ export default {
     onLeaveTrainingChanged (value) {
       this.convertToBooleanAndSend(this.onLeaveTrainingChange, value)
     },
-    convertStringToBoolean (onChange, value) {
+    convertToBooleanAndSend (onChange, value) {
       const isSet = value.target.value
       if (isSet === 'true') {
         onChange(true)

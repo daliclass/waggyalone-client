@@ -32,7 +32,19 @@ function createFacebookUser (facebookUser, commit, axios) {
 function lookupUserFromFacebookUser (facebookUser, commit, axios) {
   axios.$get('/api/user/fb/' + facebookUser.id, facebookUser)
     .then(function (user) {
-      commit('setUser', user)
+      axios.$get('/api/user/' + user.id + '/dog')
+        .then(function (dog) {
+          commit('setUser', user)
+          if (dog.courseInterest) {
+            commit('preferences/updateDenTraining', dog.courseInterest.denTraining, { root: true })
+            commit('preferences/updatePreDepartureTraining', dog.courseInterest.preDepartureTraining, { root: true })
+            commit('preferences/updateLeaveTraining', dog.courseInterest.leaveTraining, { root: true })
+          }
+          delete dog.courseInterest
+          commit('dog/setDog', dog, { root: true })
+        }).catch(function () {
+          commit('setUser', user)
+        })
     })
     .catch(function () {
       commit('failedLogin')
