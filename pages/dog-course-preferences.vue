@@ -37,6 +37,11 @@ export default {
       dogName: 'David'
     }
   },
+  created () {
+    if (!this.dogId) {
+      this.$router.push('/about-dog')
+    }
+  },
   computed: {
     heroTitle () {
       return 'Course preferences for ' + this.dogName
@@ -53,6 +58,9 @@ export default {
     },
     leaveTraining () {
       return this.$store.state.preferences.leaveTraining
+    },
+    dogId () {
+      return this.$store.state.dog.dog.id
     }
   },
   methods: {
@@ -67,6 +75,7 @@ export default {
     },
     onSave () {
       this.$store.dispatch('preferences/save')
+      this.$router.push('/app')
     }
   },
   middleware: ['authorization']

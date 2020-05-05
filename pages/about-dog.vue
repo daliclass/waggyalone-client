@@ -39,7 +39,7 @@ export default {
   methods: {
     addDog (dog) {
       this.$store.dispatch('dog/add')
-      this.$router.push('/app')
+      this.$router.push('/dog-course-preferences')
     },
     nameChange (updatedValue) {
       this.$store.dispatch('dog/setName', updatedValue)

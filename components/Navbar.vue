@@ -11,14 +11,14 @@
         class="button is-info is-inverted"
         :disabled="!loggedIn"
       >
-        Go to app
+        App
       </router-link>
       <router-link
-        to="/add-dog"
+        to="/about-dog"
         class="button is-info is-inverted"
         :disabled="!loggedIn"
       >
-        Add dog
+       Your dog
       </router-link>
       <router-link
         to="/dog-course-preferences"
@@ -37,6 +37,9 @@ export default {
   computed: {
     loggedIn () {
       return this.$store.state.authorization.loggedIn
+    },
+    dogExists () {
+      return !this.$store.state.dog.dog.id
     }
   },
   updated () {

@@ -12,6 +12,16 @@ import Navbar from '../components/Navbar.vue'
 
 export default {
   components: { Navbar },
+  computed: {
+    dogId () {
+      return this.$store.state.dog.dog.id
+    }
+  },
+  created () {
+    if (!this.dogId) {
+      this.$router.push('/about-dog')
+    }
+  },
   middleware: ['authorization']
 }
 </script>
