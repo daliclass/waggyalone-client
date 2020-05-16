@@ -37,11 +37,6 @@ export default {
       dogName: 'David'
     }
   },
-  created () {
-    if (!this.dogId) {
-      this.$router.push('/about-dog')
-    }
-  },
   computed: {
     heroTitle () {
       return 'Course preferences for ' + this.dogName
@@ -61,6 +56,11 @@ export default {
     },
     dogId () {
       return this.$store.state.dog.dog.id
+    }
+  },
+  created () {
+    if (!this.dogId) {
+      this.$router.push('/about-dog')
     }
   },
   methods: {
