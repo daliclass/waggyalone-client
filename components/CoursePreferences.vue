@@ -21,7 +21,7 @@
       :on-change="onLeaveTrainingChanged"
       :selected-value="leaveTraining"
     />
-    <button class="button is-primary is-large is-outlined" @click="onSave">
+    <button class="button is-primary is-medium" @click="onSave">
       Save course preferences
     </button>
   </section>

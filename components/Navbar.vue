@@ -5,7 +5,7 @@
         <img src="~/assets/paw.png" alt="Sa coach logo" height="50">
       </p>
 
-      <div class="navbar-burger burger" v-if="loggedIn" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+      <div v-if="loggedIn" class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
         <span />
         <span />
         <span />
@@ -13,7 +13,7 @@
     </div>
 
     <div class="navbar-menu">
-      <div class="navbar-start" v-if="loggedIn">
+      <div v-if="loggedIn" class="navbar-start">
         <router-link
           to="/app"
           class="navbar-item"

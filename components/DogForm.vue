@@ -59,7 +59,7 @@
     <div v-show="showErrorMessage" class="notification is-info">
       <p> We need to know a bit more about your dog please will in the highlighted fields </p>
     </div>
-    <button class="button is-primary is-large is-outlined" @click="addDog">
+    <button class="button is-primary is-medium" @click="addDog">
       Add dog
     </button>
     </div>
