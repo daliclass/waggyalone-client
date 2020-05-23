@@ -75,7 +75,6 @@ export default {
     },
     onSave () {
       this.$store.dispatch('preferences/save')
-      this.$router.push('/app')
     }
   },
   middleware: ['authorization']
