@@ -1,16 +1,18 @@
 <template>
   <section>
-    <TrainingOverview v-if="this.dogId" />
+    <TrainingPlan
+      v-if="this.dogId"
+    />
     <AboutDog v-else />
   </section>
 </template>
 
 <script>
-import TrainingOverview from '../components/TrainingOverview'
+import TrainingPlan from '../components/TrainingPlan'
 import AboutDog from './about-dog'
 
 export default {
-  components: { AboutDog, TrainingOverview },
+  components: { AboutDog, TrainingPlan },
   computed: {
     dogId () {
       return this.$store.state.dog.dog.id

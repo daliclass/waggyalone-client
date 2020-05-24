@@ -1,5 +1,5 @@
 <template>
-    <section>
+  <section>
     <Navbar />
     <div class="hero is-white">
       <div class="hero-body">
@@ -10,7 +10,7 @@
             </div>
             <div class="column">
               <h1 class="title">
-                Train {{ dogName }} to be confident when left alone
+                {{ milestoneTitle }}
               </h1>
               <h2 class="subtitle">
                 {{ milestoneDescription }}
@@ -19,7 +19,7 @@
                 <button class="button is-info is-medium">
                   Information
                 </button>
-                <button class="button is-primary is-medium">
+                <button class="button is-primary is-medium" @click="startTrainingSession">
                   Start training
                 </button>
               </div>
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    </section>
+  </section>
 </template>
 
 <script>
@@ -43,10 +43,19 @@ export default {
     dogName () {
       return this.$store.state.dog.dog.name
     },
+    milestoneTitle () {
+      return this.$store.state.trainingPlan.nextTrainingSession.details.title
+    },
     milestoneDescription () {
-      return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a quam ut neque pretium vehicula quis at erat.' +
-      'Etiam rhoncus at dui in accumsan. Duis pretium orci sed quam rutrum, eget ultrices tortor feugiat. Integer leo dolor, ' +
-      'aliquam et condimentum vitae, congue eu mauris. Aenean elementum erat sed tortor placerat tristique. Cras tristique sit amet. ipsum non aliquam.'
+      return this.$store.state.trainingPlan.nextTrainingSession.details.description
+    }
+  },
+  created () {
+    this.$store.dispatch('trainingPlan/get')
+  },
+  methods: {
+    startTrainingSession () {
+      this.$router.push('/start-session')
     }
   }
 }
