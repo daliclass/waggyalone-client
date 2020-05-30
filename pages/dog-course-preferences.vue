@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
-import Hero from '../components/Hero.vue'
-import CoursePreferences from '../components/CoursePreferences.vue'
+import Navbar from '../components/common/Navbar'
+import Hero from '../components/common/Hero'
+import CoursePreferences from '../components/dog/CoursePreferences'
 
 export default {
   components: { CoursePreferences, Navbar, Hero },

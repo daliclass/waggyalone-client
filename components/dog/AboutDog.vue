@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import Hero from '../components/Hero.vue'
-import DogForm from '../components/DogForm.vue'
+import Hero from '../common/Hero'
+import DogForm from './DogForm'
 
 export default {
   components: { DogForm, Hero },

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import TrainingPlan from '../components/TrainingPlan'
+import TrainingPlan from '../components/training/TrainingPlan'
 import AboutDog from './about-dog'
 
 export default {

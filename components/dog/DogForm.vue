@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import SelectOption from '../components/SelectOption.vue'
+import SelectOption from '../common/SelectOption'
 
 export default {
   components: { SelectOption },

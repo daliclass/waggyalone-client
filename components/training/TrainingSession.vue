@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import Navbar from './Navbar.vue'
-import Hero from './Hero.vue'
+import Navbar from '../common/Navbar'
+import Hero from '../common/Hero'
 
 export default {
   components: { Navbar, Hero },

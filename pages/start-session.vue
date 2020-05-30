@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TrainingSession from '../components/TrainingSession'
+import TrainingSession from '../components/training/TrainingSession'
 
 export default {
   components: { TrainingSession },
