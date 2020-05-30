@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Navbar />
     <Hero
       :title="milestoneTitle"
       :subtitle="milestoneDescription"
@@ -37,11 +36,10 @@
 </template>
 
 <script>
-import Navbar from '../common/Navbar'
 import Hero from '../common/Hero'
 
 export default {
-  components: { Navbar, Hero },
+  components: { Hero },
   computed: {
     milestoneTitle () {
       return this.$store.state.trainingPlan.nextTrainingSession.details.title

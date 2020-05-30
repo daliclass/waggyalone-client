@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Navbar />
     <Hero
       :title="heroTitle"
       :subtitle="heroSubtitle"
@@ -26,12 +25,11 @@
 </template>
 
 <script>
-import Navbar from '../components/common/Navbar'
 import Hero from '../components/common/Hero'
 import CoursePreferences from '../components/dog/CoursePreferences'
 
 export default {
-  components: { CoursePreferences, Navbar, Hero },
+  components: { CoursePreferences, Hero },
   data () {
     return {
       dogName: 'David'

@@ -48,6 +48,7 @@ export default {
     continueWithFacebook () {
       this.$store.dispatch('authorization/continueWithFacebook')
     }
-  }
+  },
+  layout: 'no-nav'
 }
 </script>

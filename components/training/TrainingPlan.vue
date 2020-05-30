@@ -1,6 +1,5 @@
 <template>
   <section>
-    <Navbar />
     <div class="hero is-white">
       <div class="hero-body">
         <div class="container">
@@ -32,10 +31,7 @@
 </template>
 
 <script>
-import Navbar from '../common/Navbar'
-
 export default {
-  components: { Navbar },
   computed: {
     dogId () {
       return this.$store.state.dog.dog.id
