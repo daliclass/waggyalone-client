@@ -8,19 +8,17 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-12-mobile is-12-tablet is-12-desktop is-12-widescreen has-text-centered">
-          <table class="table">
+          <table class="table is-fullwidth">
             <thead>
               <tr>
                 <th>Exercise</th>
-                <th>Location</th>
                 <th>Description</th>
                 <th>Duration</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="trainingExercise in trainingExercises" :key="trainingExercise.uuid" class="is-size-5">
-                <td>{{ trainingExercise.exercise.action }} </td>
-                <td>{{ trainingExercise.exercise.location }} </td>
+                <td>{{ trainingExercise.exercise.action }} in  {{ trainingExercise.exercise.location }}</td>
                 <td>{{ trainingExercise.exercise.description }}</td>
                 <td>{{ trainingExercise.duration }}</td>
               </tr>
