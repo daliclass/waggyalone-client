@@ -1,12 +1,12 @@
 <template>
-  <TrainingSession />
+  <TrainingOverview />
 </template>
 
 <script>
-import TrainingSession from '../components/training/TrainingSession'
+import TrainingOverview from '../components/training/TrainingOverview'
 
 export default {
-  components: { TrainingSession },
+  components: { TrainingOverview },
   middleware: ['authorization']
 }
 </script>

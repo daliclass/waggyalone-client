@@ -1,6 +1,6 @@
 <template>
   <section>
-      <Timer />
+    <Timer />
   </section>
 </template>
 

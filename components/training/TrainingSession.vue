@@ -1,59 +1,61 @@
 <template>
-  <section>
-    <Hero
-      :title="milestoneTitle"
-      :subtitle="milestoneDescription"
-    />
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-12-mobile is-12-tablet is-12-desktop is-12-widescreen has-text-centered">
-          <table class="table is-fullwidth">
-            <thead>
-              <tr>
-                <th>Exercise</th>
-                <th>Description</th>
-                <th>Duration</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="trainingExercise in trainingExercises" :key="trainingExercise.uuid" class="is-size-5">
-                <td>{{ trainingExercise.exercise.action }} in  {{ trainingExercise.exercise.location }}</td>
-                <td>{{ trainingExercise.exercise.description }}</td>
-                <td>{{ trainingExercise.duration }}</td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="button is-info is-medium" @click="goToOverview">
-            Back to overview
-          </button>
-          <button class="button is-primary is-medium">
-            Start session
-          </button>
-        </div>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-8-desktop is-8-widescreen has-text-centered">
+        <Hero
+          title="Settle dog in same room"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+        />
       </div>
     </div>
-  </section>
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-8-desktop is-8-widescreen has-text-centered">
+        <Timer
+          :start-timer="startTimer"
+          :stop-timer="stopTimer"
+          :current-seconds="currentSeconds"
+          :total-seconds="totalSeconds"
+          :formatted-hours="formattedHours"
+          :formatted-minutes="formattedMinutes"
+          :formatted-seconds="formattedSeconds"
+        />
+        <br>
+        <Grade />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import Hero from '../common/Hero'
+import Timer from './Timer'
+import Grade from './Grade'
 
 export default {
-  components: { Hero },
+  components: { Timer, Grade, Hero },
   computed: {
-    milestoneTitle () {
-      return this.$store.state.trainingPlan.nextTrainingSession.details.title
+    currentSeconds () {
+      return this.$store.state.timer.currentSeconds
     },
-    milestoneDescription () {
-      return this.$store.state.trainingPlan.nextTrainingSession.details.description
+    totalSeconds () {
+      return this.$store.state.timer.totalSeconds
     },
-    trainingExercises () {
-      return this.$store.state.trainingPlan.nextTrainingSession.exercises
+    formattedHours () {
+      return this.$store.state.timer.formattedHours
+    },
+    formattedMinutes () {
+      return this.$store.state.timer.formattedMinutes
+    },
+    formattedSeconds () {
+      return this.$store.state.timer.formattedSeconds
     }
   },
   methods: {
-    goToOverview () {
-      this.$router.push('/app')
+    startTimer () {
+      this.$store.dispatch('timer/start')
+    },
+    stopTimer () {
+      this.$store.dispatch('timer/stop')
     }
   }
 }
