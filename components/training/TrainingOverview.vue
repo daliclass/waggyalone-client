@@ -19,7 +19,7 @@
               <tr v-for="trainingExercise in trainingExercises" :key="trainingExercise.uuid" class="is-size-5">
                 <td>{{ trainingExercise.exercise.action }} in  {{ trainingExercise.exercise.location }}</td>
                 <td>{{ trainingExercise.exercise.description }}</td>
-                <td>{{ trainingExercise.duration }}</td>
+                <td>{{ formattedTime(trainingExercise.duration) }}</td>
               </tr>
             </tbody>
           </table>
@@ -37,18 +37,19 @@
 
 <script>
 import Hero from '../common/Hero'
+import { formatSecondsIntoTime } from '../../store/timer'
 
 export default {
   components: { Hero },
   computed: {
     milestoneTitle () {
-      return this.$store.state.trainingPlan.nextTrainingSession.details.title
+      return this.$store.state.trainingPlan.currentTrainingSession.details.title
     },
     milestoneDescription () {
-      return this.$store.state.trainingPlan.nextTrainingSession.details.description
+      return this.$store.state.trainingPlan.currentTrainingSession.details.description
     },
     trainingExercises () {
-      return this.$store.state.trainingPlan.nextTrainingSession.exercises
+      return this.$store.state.trainingPlan.currentTrainingSession.exercises
     }
   },
   methods: {
@@ -57,6 +58,10 @@ export default {
     },
     goToSession () {
       this.$router.push('/training-session')
+      this.$store.dispatch('trainingPlan/setCurrentExercise')
+    },
+    formattedTime (duration) {
+      return formatSecondsIntoTime(duration)
     }
   }
 }

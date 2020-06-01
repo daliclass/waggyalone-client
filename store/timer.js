@@ -9,20 +9,19 @@ export const state = () => ({
 })
 
 export const mutations = {
-  start (state) {
+  start (state, exerciseDuration) {
+    state.totalSeconds = exerciseDuration
     state.active = true
   },
   increment (state) {
     state.currentSeconds += 1
-    state.formattedSeconds = state.currentSeconds % 60
-    state.formattedMinutes = Math.floor(state.currentSeconds / 60) % 60
-    state.formattedHours = Math.floor(state.currentSeconds / 3600)
   },
   setIntervalId (state, intervalId) {
     state.intervalId = intervalId
   },
   stop (state) {
     state.active = false
+    state.currentSeconds = 0
   }
 }
 
@@ -47,10 +46,17 @@ export const plugin = (store) => {
 }
 
 export const actions = {
-  start ({ commit, rootState }) {
-    commit('start')
+  start ({ commit, rootState }, exerciseDuration) {
+    commit('start', exerciseDuration)
   },
   stop ({ commit, rootState }) {
     commit('stop')
   }
+}
+
+export const formatSecondsIntoTime = (seconds) => {
+  const formattedSeconds = seconds % 60
+  const formattedMinutes = Math.floor(seconds / 60) % 60
+  const formattedHours = Math.floor(seconds / 3600)
+  return formattedHours + ':' + formattedMinutes + ':' + formattedSeconds
 }
