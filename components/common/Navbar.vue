@@ -15,19 +15,19 @@
     <div class="navbar-menu">
       <div v-if="loggedIn" class="navbar-start">
         <router-link
-          to="/app"
+          to="/training/plan"
           class="navbar-item"
         >
           App
         </router-link>
         <router-link
-          to="/about-dog"
+          to="/dog/about"
           class="navbar-item"
         >
           Your dog
         </router-link>
         <router-link
-          to="/dog-course-preferences"
+          to="/dog/preferences"
           class="navbar-item"
         >
           Course preferences
@@ -57,7 +57,7 @@ export default {
   },
   updated () {
     if (this.loggedIn) {
-      this.$router.push('/app')
+      this.$router.push('/training/plan')
     }
   },
   methods: {

@@ -1,11 +1,9 @@
 <template>
-  <section>
-    <About />
-  </section>
+  <About />
 </template>
 
 <script>
-import About from '../components/dog/AboutDog.vue'
+import About from '../../components/dog/AboutDog.vue'
 
 export default {
   components: { About },

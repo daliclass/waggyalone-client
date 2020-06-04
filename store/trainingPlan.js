@@ -23,8 +23,8 @@ export const state = () => ({
   currentExerciseId: 1,
   currentTrainingSession: {
     details: {
-      title: 'title',
-      description: 'description'
+      title: null,
+      description: null
     }
   },
   currentExercise: null,

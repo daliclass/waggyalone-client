@@ -4,9 +4,7 @@
       :title="milestoneTitle"
       :subtitle="milestoneDescription"
     />
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-12-mobile is-10-tablet is-8-desktop is-8-widescreen has-text-centered">
+    <div class="container is-centered has-text-centered">
           <table class="table is-fullwidth">
             <thead>
               <tr>
@@ -29,8 +27,6 @@
           <button class="button is-primary is-medium" @click="goToSession">
             Start session
           </button>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -54,10 +50,10 @@ export default {
   },
   methods: {
     goToOverview () {
-      this.$router.push('/app')
+      this.$router.push('/training/plan')
     },
     goToSession () {
-      this.$router.push('/training-session')
+      this.$router.push('/training/session')
       this.$store.dispatch('trainingPlan/setCurrentExercise')
     },
     formattedTime (duration) {

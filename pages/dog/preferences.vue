@@ -5,9 +5,7 @@
       :subtitle="heroSubtitle"
     />
     </br>
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-12-mobile is-8-tablet is-10-desktop is-10-widescreen has-text-centered">
+    <div class="container is-centered has-text-centered">
           <CoursePreferences
             :dog-name="dogName"
             :den-training="denTraining"
@@ -18,15 +16,13 @@
             :on-leave-training-change="onLeaveTrainingChange"
             :on-save="onSave"
           />
-        </div>
-      </div>
     </div>
   </section>
 </template>
 
 <script>
-import Hero from '../components/common/Hero'
-import CoursePreferences from '../components/dog/CoursePreferences'
+import Hero from '../../components/common/Hero'
+import CoursePreferences from '../../components/dog/CoursePreferences'
 
 export default {
   components: { CoursePreferences, Hero },

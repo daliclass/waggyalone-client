@@ -5,9 +5,7 @@
       subtitle="So that we can give you and your furry companion the best experience we need to get to know a little bit about you both."
     />
     </br>
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-12-mobile is-8-tablet is-10-desktop is-10-widescreen has-text-centered">
+    <div class="container is-centered has-text-centered">
           <DogForm
             :dog="dog"
             :create-dog="addDog"
@@ -17,8 +15,6 @@
             :breed-change="breedChange"
             :gender-change="genderChange"
           />
-        </div>
-      </div>
     </div>
   </section>
 </template>

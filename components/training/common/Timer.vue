@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { formatSecondsIntoTime } from '../../store/timer'
+import { formatSecondsIntoTime } from '../../../store/timer'
 
 export default {
   props: {

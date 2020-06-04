@@ -1,17 +1,11 @@
 <template>
-  <section>
+  <section class="container is-centered has-text-centered">
     <Loading v-if="sessionCompleted" />
-    <div v-if="!sessionCompleted" class="container">
-      <div class="columns is-centered">
-        <div class="column is-10-mobile is-8-tablet is-8-desktop is-8-widescreen has-text-centered">
-          <Hero
-            :title="exerciseName"
-            :subtitle="exerciseDescription"
-          />
-        </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-10-mobile is-8-tablet is-8-desktop is-8-widescreen has-text-centered">
+    <div v-if="!sessionCompleted">
+      <Hero
+        :title="exerciseName"
+        :subtitle="exerciseDescription"
+      />
           <Timer
             :start-timer="startTimer"
             :stop-timer="stopTimer"
@@ -24,8 +18,6 @@
             :grade-okay="gradeOkay"
             :grade-stressed="gradeStressed"
           />
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -34,8 +26,8 @@
 import Hero from '../common/Hero'
 import Loading from '../common/Loading'
 import { formatSecondsIntoTime } from '../../store/timer'
-import Timer from './Timer'
-import GradePicker from './GradePicker'
+import Timer from './common/Timer'
+import GradePicker from './common/GradePicker'
 
 export default {
   components: { Timer, GradePicker, Hero, Loading },

@@ -2,13 +2,17 @@
   <section>
     <Loading v-if="isLoading" />
     <section v-else>
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-12-mobile is-10-tablet is-8-desktop is-8-widescreen has-text-centered">
-            <Hero
-              :title="message"
-              subtitle="some generic advice about keeping going etc etc etc"
-            />
+    <div class="container is-centered has-text-centered">
+        <Hero
+          :title="message.title"
+          :subtitle="message.subtitle"
+        />
+          <hr>
+          <h2 class="title">Milestone Information</h2>
+          <h3 class="title is-5">{{ trainingSession.details.title }}</h3>
+          <p>{{ trainingSession.details.description }}</p>
+          <hr>
+          <h2 class="title">Session report</h2>
             <table class="table is-fullwidth">
               <thead>
                 <tr>
@@ -29,8 +33,6 @@
               Back to overview
             </button>
           </div>
-        </div>
-      </div>
     </section>
   </section>
 </template>
@@ -56,11 +58,23 @@ export default {
       const grade = this.trainingSession.grade
       const name = this.$store.state.dog.dog.name
       if (grade === 'STRESSED') {
-        return name + ' was stressed, we are reducing the time for the next session'
+        return {
+          title: name + ' was stressed, we are reducing the time for the next session',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
+          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
+        }
       } else if (grade === 'GREAT') {
-        return name + ' did really well we are increasing the time for the next session'
+        return {
+          title: name + ' did really well we are increasing the time for the next session',
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
+          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
+        }
       }
-      return name + ' did okay next session we will try the same length again'
+      return {
+        title: name + ' did okay next session we will go back the the previous great time',
+        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
+          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
+      }
     }
   },
   created () {
@@ -68,11 +82,12 @@ export default {
   },
   methods: {
     goToOverview () {
-      this.$router.push('/app')
+      this.$router.push('/training/plan')
     },
     formattedTime (duration) {
       return formatSecondsIntoTime(duration)
     }
-  }
+  },
+  middleware: ['authorization']
 }
 </script>

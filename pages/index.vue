@@ -2,9 +2,7 @@
   <section class="hero is-fullheight is-primary">
     <Navbar />
     <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-12-mobile is-8-tablet is-10-desktop is-10-widescreen has-text-centered">
+      <div class="container is-centered has-text-centered">
             <img
               src="~/assets/paw.png"
               height="100"
@@ -23,8 +21,6 @@
             <button v-if="!loggedIn" class="button is-facebook" @click="continueWithFacebook">
               Login with Facebook
             </button>
-          </div>
-        </div>
       </div>
     </div>
     </div>

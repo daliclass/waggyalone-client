@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import TrainingPlan from '../components/training/TrainingPlan'
-import AboutDog from './about-dog'
+import TrainingPlan from '../../components/training/TrainingPlan'
+import AboutDog from '../dog/about'
 
 export default {
   components: { AboutDog, TrainingPlan },
