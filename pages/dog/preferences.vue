@@ -6,16 +6,16 @@
     />
     </br>
     <div class="container is-centered has-text-centered">
-          <CoursePreferences
-            :dog-name="dogName"
-            :den-training="denTraining"
-            :pre-departure-training="preDepartureTraining"
-            :leave-training="leaveTraining"
-            :on-den-training-change="onDenTrainingChange"
-            :on-pre-departure-training-change="onPreDepartureTrainingChange"
-            :on-leave-training-change="onLeaveTrainingChange"
-            :on-save="onSave"
-          />
+      <CoursePreferences
+        :dog-name="dogName"
+        :den-training="denTraining"
+        :pre-departure-training="preDepartureTraining"
+        :leave-training="leaveTraining"
+        :on-den-training-change="onDenTrainingChange"
+        :on-pre-departure-training-change="onPreDepartureTrainingChange"
+        :on-leave-training-change="onLeaveTrainingChange"
+        :on-save="onSave"
+      />
     </div>
   </section>
 </template>

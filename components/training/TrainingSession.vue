@@ -6,18 +6,18 @@
         :title="exerciseName"
         :subtitle="exerciseDescription"
       />
-          <Timer
-            :start-timer="startTimer"
-            :stop-timer="stopTimer"
-            :current-seconds="currentSeconds"
-            :total-seconds="totalSeconds"
-          />
-          <br>
-          <GradePicker
-            :grade-great="gradeGreat"
-            :grade-okay="gradeOkay"
-            :grade-stressed="gradeStressed"
-          />
+      <Timer
+        :start-timer="startTimer"
+        :stop-timer="stopTimer"
+        :current-seconds="currentSeconds"
+        :total-seconds="totalSeconds"
+      />
+      <br>
+      <GradePicker
+        :grade-great="gradeGreat"
+        :grade-okay="gradeOkay"
+        :grade-stressed="gradeStressed"
+      />
     </div>
   </section>
 </template>

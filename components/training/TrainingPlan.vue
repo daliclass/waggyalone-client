@@ -30,28 +30,28 @@
         </div>
       </div>
       <div v-if="hasTrainingSessions" class="container has-text-centered">
-            <table class="table is-fullwidth">
-              <thead>
-                <tr>
-                  <th>Grade</th>
-                  <th>Milestone</th>
-                  <th>Duration</th>
-                  <th>View</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="trainingSession in trainingSessions" :key="trainingSession.id">
-                  <td><Grade :grade="trainingSession.grade" /></td>
-                  <td>{{ trainingSession.details.title }}</td>
-                  <td>{{ formatTime(trainingSession.exercises) }}</td>
-                  <td>
-                    <button class="button is-info" @click="reviewSession(trainingSession.id)">
-                      View
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Grade</th>
+              <th>Milestone</th>
+              <th>Duration</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="trainingSession in trainingSessions" :key="trainingSession.id">
+              <td><Grade :grade="trainingSession.grade" /></td>
+              <td>{{ trainingSession.details.title }}</td>
+              <td>{{ formatTime(trainingSession.exercises) }}</td>
+              <td>
+                <button class="button is-info" @click="reviewSession(trainingSession.id)">
+                  View
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </section>

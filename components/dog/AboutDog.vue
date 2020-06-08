@@ -6,15 +6,15 @@
     />
     </br>
     <div class="container is-centered has-text-centered">
-          <DogForm
-            :dog="dog"
-            :create-dog="addDog"
-            :name-change="nameChange"
-            :birth-month-change="birthMonthChange"
-            :birth-year-change="birthYearChange"
-            :breed-change="breedChange"
-            :gender-change="genderChange"
-          />
+      <DogForm
+        :dog="dog"
+        :create-dog="addDog"
+        :name-change="nameChange"
+        :birth-month-change="birthMonthChange"
+        :birth-year-change="birthYearChange"
+        :breed-change="breedChange"
+        :gender-change="genderChange"
+      />
     </div>
   </section>
 </template>

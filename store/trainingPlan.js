@@ -88,7 +88,6 @@ export const actions = {
   },
   completeExercise (store, grade) {
     const axios = this.$axios
-    console.log(store)
     const trainingSessionId = store.state.currentTrainingSession.id
     const trainingPlanId = store.state.id
     const exerciseId = store.state.currentExercise.id
