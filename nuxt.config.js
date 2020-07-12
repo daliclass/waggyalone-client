@@ -60,7 +60,7 @@ export default {
   },
 
   proxy: {
-    '/api/': 'http://localhost:8080'
+    '/api/': process.env.SERVER_URL || 'http://localhost:8080'
   },
   /*
   ** Build configuration
