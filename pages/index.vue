@@ -25,6 +25,11 @@
             <nuxt-link v-scroll-to="{el: '#get-started'}" :to="{path: '/', hash: 'get-started'}" class="navbar-item">
               Get started
             </nuxt-link>
+            <div class="navbar-item">
+              <div class="buttons">
+                <a v-if="loggedIn" class="button is-info" @click="logout"> log out </a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -186,9 +191,18 @@ export default {
       this.$router.push('/training/plan')
     }
   },
+  created () {
+    if (this.loggedIn) {
+      this.$router.push('/training/plan')
+    }
+  },
   methods: {
     continueWithFacebook () {
-      this.$store.dispatch('authorization/continueWithFacebook')
+      if (this.loggedIn) {
+        this.$router.push('/training/plan')
+      } else {
+        this.$store.dispatch('authorization/continueWithFacebook')
+      }
     }
   },
   layout: 'no-nav'
