@@ -3,6 +3,15 @@
     <script />
     <Navbar />
     <nuxt />
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>WaggyAlone</strong> The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a> <a>terms of service </a> and <a>privacy policy</a>. Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons" rel="nofollow">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
+        </p>
+      </div>
+    </footer>
+    </br>
   </div>
 </template>
 

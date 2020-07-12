@@ -2,7 +2,7 @@
   <section class="container is-centered has-text-centered">
     <Loading v-if="sessionCompleted" />
     <div v-if="!sessionCompleted">
-      <Hero
+      <ListHero
         :title="exerciseName"
         :subtitle="exerciseDescription"
       />
@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import Hero from '../common/Hero'
+import ListHero from '../common/ListHero'
 import Loading from '../common/Loading'
 import { formatSecondsIntoTime } from '../../store/timer'
 import Timer from './common/Timer'
 import GradePicker from './common/GradePicker'
 
 export default {
-  components: { Timer, GradePicker, Hero, Loading },
+  components: { Timer, GradePicker, ListHero, Loading },
   computed: {
     sessionCompleted () {
       return this.$store.state.trainingPlan.currentExercise === null
@@ -48,8 +48,8 @@ export default {
     exerciseDescription () {
       const exercise = this.$store.state.trainingPlan.currentExercise
       const duration = exercise.duration
-      const durationInformation = 'This exercise takes ' + formatSecondsIntoTime(duration)
-      return durationInformation + exercise.exercise.description
+      const durationInformation = 'This exercise takes ' + formatSecondsIntoTime(duration) + ' '
+      return [exercise.exercise.description, durationInformation]
     },
     exerciseDuration () {
       const exercise = this.$store.state.trainingPlan.currentExercise

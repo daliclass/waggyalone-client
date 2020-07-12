@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Hero
+    <ListHero
       :title="milestoneTitle"
       :subtitle="milestoneDescription"
     />
@@ -32,11 +32,11 @@
 </template>
 
 <script>
-import Hero from '../common/Hero'
+import ListHero from '../common/ListHero'
 import { formatSecondsIntoTime } from '../../store/timer'
 
 export default {
-  components: { Hero },
+  components: { ListHero },
   computed: {
     milestoneTitle () {
       return this.$store.state.trainingPlan.currentTrainingSession.details.title

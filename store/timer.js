@@ -55,8 +55,17 @@ export const actions = {
 }
 
 export const formatSecondsIntoTime = (seconds) => {
-  const formattedSeconds = seconds % 60
-  const formattedMinutes = Math.floor(seconds / 60) % 60
-  const formattedHours = Math.floor(seconds / 3600)
+  const format = function (number) {
+    const numberString = number + ''
+    if (numberString.length === 2) {
+      return numberString
+    }
+    return 0 + numberString
+  }
+
+  const formattedSeconds = format(seconds % 60)
+  const formattedMinutes = format(Math.floor(seconds / 60) % 60)
+  const formattedHours = format(Math.floor(seconds / 3600))
+
   return formattedHours + ':' + formattedMinutes + ':' + formattedSeconds
 }

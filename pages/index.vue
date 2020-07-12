@@ -1,26 +1,48 @@
 <template>
   <section>
     <section class="hero is-fullheight is-primary">
-      <Navbar />
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <h1 class="navbar-item has-text-weight-bold">
+            WaggyAlone
+          </h1>
+
+          <div class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="#why-us">
+              Why us
+            </a>
+            <a class="navbar-item" href="#how-it-works">
+              how it works
+            </a>
+            <a class="navbar-item" href="#get-started">
+              Get started
+            </a>
+          </div>
+        </div>
+      </nav>
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column">
               <div>
                 <h2 class="title is-1">
-                  Train at a pace that suits you
+                  Happy Hounds at Home
                 </h2>
                 </br>
                 <p class="subtitle is-4">
                   We help owners train their dogs to be happy when left home alone. Puppy or grown-up this course is here to provide guidance, tips and support.
                 </p>
-                <button v-if="!loggedIn" class="button is-facebook is-large" @click="continueWithFacebook">
-                  Login with Facebook
-                </button>
-                <div v-if="userErrorAuthenticating" class="notification is-warning">
-                  Oops.... this is embarrassing their was a problem with your log in please try again
-                </div>
-                </br>
+                <a class="button is-facebook is-large" href="#get-started">
+                  Start Training Today
+                </a>
               </div>
             </div>
             <div class="column">
@@ -31,7 +53,7 @@
       </div>
       </div>
     </section>
-    <section class="hero is-info">
+    <section id="why-us" class="hero is-info">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
@@ -39,7 +61,7 @@
               <img src="../assets/dog-1.svg">
             </div>
             <div class="column is-two-thirds">
-              <h2 class="title is-2">
+              <h2 id="why-us" class="title is-2">
                 Why train with us
               </h2>
               <p class="subtitle">
@@ -62,7 +84,7 @@
       </div>
       </div>
     </section>
-    <section class="hero is-info">
+    <section id="how-it-works" class="hero is-info">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
@@ -71,15 +93,18 @@
                 How the course works
               </h2>
               <p class="subtitle">
+                We help owners train their dogs to be happy when left home alone. Puppy or grown-up this course is here to provide guidance, tips and support.
+              </p>
+              <p class="subtitle">
                 <ul class="list">
                   <li class="list-item">
-                    <input type="checkbox" disabled> Sign in and tell us about your dog and the current stage you are at in your training
+                    Sign in and tell us about your dog and the current stage you are at in your training
                   </li>
                   <li class="list-item">
-                    <input type="checkbox" disabled> We generate a training session for you containing multiple exercises to complete with your dog
+                    We generate a training session for you containing multiple exercises to complete with your dog
                   </li>
                   <li class="list-item">
-                    <input type="checkbox" disabled> Once you complete the session we create another training session based on your performance
+                    Once you complete the session we create another training session based on your performance
                   </li>
                 </ul>
               </p>
@@ -92,21 +117,25 @@
       </div>
       </div>
     </section>
-    <section class="hero is-info">
+    <section id="get-started" class="hero is-info">
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-1">
             Get Started
           </h2>
           <p class="subtitle">
-            To get started just press the button below to sign up with Facebook and we will give you five free training sessions so you can find out if its a good fit.
+            To get started just press the button below to sign up with Facebook and you can get started right away
           </p>
           <p class="subtitle">
-            We know that different dogs take differing amounts of time to train. That is why we only offer one price of £25 for lifetime access to our training tool.
+            We know that different dogs take differing amounts of time to train. For a limited time we are offering free access to WaggyAlone while we continue to refine the course.
           </p>
-          <button v-if="!loggedIn" class="button is-facebook is-large" @click="continueWithFacebook">
-            Get started with Facebook
+          <button class="button is-facebook is-medium" @click="continueWithFacebook">
+            Login with Facebook
           </button>
+          <div v-if="userErrorAuthenticating" class="notification is-warning">
+            Oops.... this is embarrassing their was a problem with your log in please try again
+          </div>
+          </br>
         </div>
       </div>
       </div>
@@ -120,6 +149,9 @@
           <p class="subtitle">
             We would love to hear from you please reach out to us on Facebook Messenger at WaggyAlone. We are happy to answer any questions and offer any support we can.
           </p>
+          <a href="https://www.facebook.com/WaggyAlone/" class="button is-facebook is-medium">
+            Ask a question
+          </a>
         </div>
       </div>
       </div>
@@ -136,16 +168,18 @@
 </template>
 
 <script>
-import Navbar from '../components/common/Navbar.vue'
-
 export default {
-  components: { Navbar },
   computed: {
     userErrorAuthenticating () {
       return this.$store.state.authorization.userErrorAuthenticating
     },
     loggedIn () {
       return this.$store.state.authorization.loggedIn
+    }
+  },
+  updated () {
+    if (this.loggedIn) {
+      this.$router.push('/training/plan')
     }
   },
   methods: {

@@ -3,38 +3,32 @@
     <Loading v-if="isLoading" />
     <section v-else>
       <div class="container is-centered has-text-centered">
-        <Hero
-          :title="message.title"
-          :subtitle="message.subtitle"
-        />
-        <hr>
-        <h2 class="title">
-          Milestone Information
-        </h2>
-        <h3 class="title is-5">
-          {{ trainingSession.details.title }}
-        </h3>
-        <p>{{ trainingSession.details.description }}</p>
-        <hr>
-        <h2 class="title">
-          Session report
-        </h2>
-        <table class="table is-fullwidth">
-          <thead>
-            <tr>
-              <th>Exercise</th>
-              <th>Duration</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="exercise in trainingSession.exercises" :key="exercise.uuid" class="is-size-5">
-              <td>{{ exercise.exercise.action }} in  {{ exercise.exercise.location }}</td>
-              <td>{{ formattedTime(exercise.duration) }}</td>
-              <td><Grade :grade="exercise.grade" /></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="has-text-left">
+          <ListHero
+            :title="trainingSession.details.title"
+            :subtitle="trainingSession.details.description"
+          />
+          <hr>
+          <h2 class="title">
+            Session report: {{ message }}
+          </h2>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Exercise</th>
+                <th>Duration</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="exercise in trainingSession.exercises" :key="exercise.uuid" class="is-size-5">
+                <td>{{ exercise.exercise.action }} in  {{ exercise.exercise.location }}</td>
+                <td>{{ formattedTime(exercise.duration) }}</td>
+                <td><Grade :grade="exercise.grade" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <button class="button is-info is-medium" @click="goToOverview">
           Back to overview
         </button>
@@ -46,11 +40,11 @@
 <script>
 import Loading from '../../components/common/Loading'
 import Grade from '../../components/common/Grade'
-import Hero from '../../components/common/Hero'
+import ListHero from '../../components/common/ListHero'
 import { formatSecondsIntoTime } from '../../store/timer'
 
 export default {
-  components: { Loading, Hero, Grade },
+  components: { Loading, Grade, ListHero },
   computed: {
     isLoading () {
       return this.trainingSession === null
@@ -64,23 +58,11 @@ export default {
       const grade = this.trainingSession.grade
       const name = this.$store.state.dog.dog.name
       if (grade === 'STRESSED') {
-        return {
-          title: name + ' was stressed, we are reducing the time for the next session',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
-          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
-        }
+        return name + ' was stressed, we are reducing the time for the next session'
       } else if (grade === 'GREAT') {
-        return {
-          title: name + ' did really well we are increasing the time for the next session',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
-          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
-        }
+        return name + ' did really well we are increasing the time for the next session'
       }
-      return {
-        title: name + ' did okay next session we will go back the the previous great time',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit at velit et dictum.' +
-          'Phasellus sed est odio. In libero sem, gravida eget commodo at, pretium ullamcorper metus.'
-      }
+      return name + ' did okay next session we will go back the previous great time'
     }
   },
   created () {

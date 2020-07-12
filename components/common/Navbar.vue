@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar-brand">
-      <p class="navbar-item">
-        <img src="~/assets/paw.png" alt="Sa coach logo" height="50">
-      </p>
+      <h1 class="navbar-item has-text-weight-bold">
+        Waggy Alone
+      </h1>
 
       <div v-if="loggedIn" class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
         <span />
@@ -18,19 +18,13 @@
           to="/training/plan"
           class="navbar-item"
         >
-          App
+          Training
         </router-link>
         <router-link
           to="/dog/about"
           class="navbar-item"
         >
           Your dog
-        </router-link>
-        <router-link
-          to="/dog/preferences"
-          class="navbar-item"
-        >
-          Course preferences
         </router-link>
       </div>
 

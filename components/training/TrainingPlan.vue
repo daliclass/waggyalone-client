@@ -7,19 +7,16 @@
           <div class="container">
             <div class="columns is-mobile">
               <div class="column is-one-fifth">
-                <img src="~/assets/paw.png" alt="Sa coach logo" height="50">
+                <img src="~/assets/dog-2.svg" alt="Sa coach logo" height="50">
               </div>
               <div class="column">
                 <h1 class="title">
                   {{ milestoneTitle }}
                 </h1>
-                <h2 class="subtitle">
-                  {{ milestoneDescription }}
+                <h2 v-for="paragraph in milestoneDescription" :key="paragraph" class="subtitle">
+                  {{ paragraph }}
                 </h2>
                 <div class="buttons is-pulled-right">
-                  <button class="button is-info is-medium">
-                    Information
-                  </button>
                   <button class="button is-primary is-medium" @click="startTrainingSession">
                     Start training
                   </button>

@@ -1,7 +1,7 @@
 <template>
   <section>
     <TrainingPlan
-      v-if="this.dogId"
+      v-if="dogId"
     />
     <AboutDog v-else />
   </section>
