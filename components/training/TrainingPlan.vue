@@ -16,6 +16,16 @@
                 <h2 v-for="paragraph in milestoneDescription" :key="paragraph" class="subtitle">
                   {{ paragraph }}
                 </h2>
+                <div v-if="hasNextMilestone" class="buttons is-pulled-right">
+                  <button class="button is-info is-medium" @click="skipMilestone">
+                    Skip milestone
+                  </button>
+                </div>
+                <div v-if="hasPreviousMilestone" class="buttons is-pulled-right">
+                  <button class="button is-info is-medium" @click="previousMilestone">
+                    Previous milestone
+                  </button>
+                </div>
                 <div class="buttons is-pulled-right">
                   <button class="button is-primary is-medium" @click="startTrainingSession">
                     Start training
@@ -82,6 +92,12 @@ export default {
     },
     hasTrainingSessions () {
       return this.$store.state.trainingPlan.trainingSessions != null && this.$store.state.trainingPlan.trainingSessions.length > 0
+    },
+    hasNextMilestone () {
+      return this.$store.state.trainingPlan.hasNextMilestone
+    },
+    hasPreviousMilestone () {
+      return this.$store.state.trainingPlan.hasPreviousMilestone
     }
   },
   created () {
@@ -96,6 +112,13 @@ export default {
     },
     reviewSession (trainingSessionId) {
       this.$router.push('/training/' + trainingSessionId)
+    },
+    skipMilestone () {
+      console.log('click')
+      this.$store.dispatch('trainingPlan/skipMilestone')
+    },
+    previousMilestone () {
+      this.$store.dispatch('trainingPlan/previousMilestone')
     }
   }
 }

@@ -28,17 +28,21 @@ export const state = () => ({
     }
   },
   currentExercise: null,
-  completedTrainingSessionId: null
+  completedTrainingSessionId: null,
+  hasNextMilestone: false,
+  hasPreviousMilestone: false
 })
 
 export const mutations = {
   set (state, trainingPlan) {
     state.id = trainingPlan.id
-    state.currentMilestone = trainingPlan.currentMilestone
+    state.activeMilestoneId = trainingPlan.activeMilestoneId
     state.currentSeparationDuration = trainingPlan.currentSeparationDuration
     state.nextSeparationDuration = trainingPlan.nextSeparationDuration
     state.trainingSessions = trainingPlan.trainingSessions.reverse()
     state.currentTrainingSession = trainingPlan.currentTrainingSession
+    state.hasPreviousMilestone = trainingPlan.hasPreviousMilestone
+    state.hasNextMilestone = trainingPlan.hasNextMilestone
   },
   setCurrentExercise (state) {
     const exercises = state.currentTrainingSession.exercises.filter((exercise) => {
@@ -109,5 +113,29 @@ export const actions = {
   },
   removeCompletedTrainingSessionId ({ commit }) {
     commit('removeCompletedTrainingSessionId')
+  },
+  skipMilestone ({ commit, rootState }) {
+    const axios = this.$axios
+    const trainingPlanId = rootState.trainingPlan.id
+    axios.$put('/api/training/skipModule/' + trainingPlanId)
+      .then(function (response) {
+        const dogId = rootState.dog.dog.id
+        axios.$get('/api/training/' + dogId)
+          .then(function (trainingPlan) {
+            commit('set', trainingPlan)
+          })
+      })
+  },
+  previousMilestone ({ commit, rootState }) {
+    const axios = this.$axios
+    const trainingPlanId = rootState.trainingPlan.id
+    axios.$put('/api/training/previousModule/' + trainingPlanId)
+      .then(function (response) {
+        const dogId = rootState.dog.dog.id
+        axios.$get('/api/training/' + dogId)
+          .then(function (trainingPlan) {
+            commit('set', trainingPlan)
+          })
+      })
   }
 }
