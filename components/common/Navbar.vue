@@ -5,7 +5,7 @@
         Waggy Alone
       </h1>
 
-      <div v-if="loggedIn" class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+      <div class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
         <span />
         <span />
         <span />
@@ -26,6 +26,18 @@
         >
           Your dog
         </router-link>
+      </div>
+
+      <div v-else class="navbar-end">
+                <div class="navbar-item">
+          <div class="buttons">
+        <router-link
+          to="/"
+          class="button is-facebook"
+        >
+          Get Started
+        </router-link>
+          </div></div>
       </div>
 
       <div class="navbar-end">

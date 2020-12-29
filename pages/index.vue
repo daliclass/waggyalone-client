@@ -48,6 +48,9 @@
                 <a class="button is-facebook is-large" href="#get-started">
                   Start Training Today
                 </a>
+                <router-link to="/treating-separation-anxiety-in-dogs" class="button is-warning is-medium content">
+                  Find out more
+                </router-link>
               </div>
             </div>
             <div class="column">
