@@ -1,8 +1,8 @@
 FROM node:13.5
 
-RUN mkdir tmp/app
+RUN mkdir app
 
-WORKDIR tmp/app
+WORKDIR app
 
 COPY . .
 
