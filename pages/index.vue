@@ -135,7 +135,7 @@
             To get started just press the button below to sign up with Facebook and you can get started right away
           </p>
           <p class="subtitle">
-            We know that different dogs take differing amounts of time to train and its best to go at your own pace. WaggyAlone is a free tool to help dogs and there owners.
+            We know that different dogs take differing amounts of time to train and its best to go at your own pace. WaggyAlone is a free tool to help dogs and their owners.
           </p>
           <button class="button is-facebook is-medium" @click="continueWithFacebook">
             Login with Facebook
