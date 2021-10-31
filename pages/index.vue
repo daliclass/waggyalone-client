@@ -73,10 +73,10 @@
                 Why train with us
               </h2>
               <p class="subtitle">
-                Training your dog to be left alone can be stressful we change that by offering easy to follow training sessions. Traditional training advice such as <b>"let them bark it out"</b> is stressful for both you and your dog and can cause future behavioural problems.
+                Training your dog to be left alone can be stressful. We change that by offering easy to follow training sessions. Traditional training advice such as <b>"let them bark it out"</b> is stressful for you and your dog and can cause future behavioural problems.
               </p>
               <p class="subtitle">
-                At <b>WaggyAlone</b> we take a different approach. <b>We provide tailored training sessions</b> for you and your dog to complete that teaches them that <b>being left alone is not scary</b>. We do this by breaking the problem down into small achievable milestones covering
+                At <b>WaggyAlone</b> we take a different approach. <b>We provide tailored training sessions</b> for you and your dog to complete that teaches <b>being left alone is not scary</b>. We do this by breaking the problem down into small achievable milestones covering
                 <ul>
                   <li>- Settling your dog where you intend to leave them</li>
                   <li>- Desensitising them to leaving and returning</li>
@@ -84,7 +84,7 @@
                 </ul>
               </p>
               <p class="subtitle">
-                By breaking the problem down into manageable milestones it allows you to look back at how far you have come and celebrate, this reduces the feelings that your stagnating or progress is not happening fast enough.
+                By breaking the problem down into manageable milestones it allows you to look back at how far you have come and celebrate. This reduces the feelings that your stagnating or progress is not happening fast enough.
               </p>
             </div>
           </div>
