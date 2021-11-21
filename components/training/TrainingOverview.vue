@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr v-for="trainingExercise in trainingExercises" :key="trainingExercise.uuid" class="is-size-5">
-            <td>{{ trainingExercise.exercise.action }} in  {{ trainingExercise.exercise.location }}</td>
+            <td>{{ trainingExercise.exercise.action }}</td>
             <td>{{ trainingExercise.exercise.description }}</td>
             <td>{{ formattedTime(trainingExercise.duration) }}</td>
           </tr>

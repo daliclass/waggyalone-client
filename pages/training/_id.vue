@@ -22,7 +22,7 @@
             </thead>
             <tbody>
               <tr v-for="exercise in trainingSession.exercises" :key="exercise.uuid" class="is-size-5">
-                <td>{{ exercise.exercise.action }} in  {{ exercise.exercise.location }}</td>
+                <td>{{ exercise.exercise.action }}</td>
                 <td>{{ formattedTime(exercise.duration) }}</td>
                 <td><Grade :grade="exercise.grade" /></td>
               </tr>
