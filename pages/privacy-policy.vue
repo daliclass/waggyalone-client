@@ -124,3 +124,20 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  head () {
+    return {
+      title: 'Privacy Policy',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.'
+        }
+      ]
+    }
+  }
+}
+</script>

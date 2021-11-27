@@ -29,15 +29,16 @@
       </div>
 
       <div v-else class="navbar-end">
-                <div class="navbar-item">
+        <div class="navbar-item">
           <div class="buttons">
-        <router-link
-          to="/"
-          class="button is-facebook"
-        >
-          Get Started
-        </router-link>
-          </div></div>
+            <router-link
+              to="/"
+              class="button is-facebook"
+            >
+              Get Started
+            </router-link>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-end">

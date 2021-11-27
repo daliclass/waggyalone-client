@@ -12,7 +12,12 @@ export default {
       { hid: 'description', name: 'description', content: 'Helping owners train their dogs to be happy when left home alone. Puppy or grown-up this course is here to provide guidance, tips and support.' }
     ],
     script: [
-      { src: '/js/fb-sdk.js' }
+      { src: '/js/fb-sdk.js' },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-921YK5Z1EV',
+        async: true
+      },
+      { src: '/js/google-analytics.js' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -40,6 +45,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
+
   /*
   ** Nuxt.js modules
   */

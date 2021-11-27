@@ -1,18 +1,24 @@
 <template>
   <div class="container is-centered">
-    <h1 class="title is-2">Treating Separation Anxiety in Dogs</h1>
+    <h1 class="title is-2">
+      Treating Separation Anxiety in Dogs
+    </h1>
     <div class="hero is-white">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-mobile">
             <div class="column is-one-fifth">
-              <img src="~/assets/dog-in-bed.svg" alt="dog in bed" height="50" />
+              <img src="~/assets/dog-in-bed.svg" alt="dog in bed" height="50">
             </div>
             <div class="column">
               <p
                 class="is-medium content"
-              >Training a dog that suffers from separation anxiety can be a daunting task. 53% of dog owners in the US believe that their dog has separation anxiety when left alone, with 61% saying their dog's exhibit signs of stress when leaving the house</p>
-              <p class="is-medium content">Some common signs of separation anxiety include:</p>
+              >
+                Training a dog that suffers from separation anxiety can be a daunting task. 53% of dog owners in the US believe that their dog has separation anxiety when left alone, with 61% saying their dog's exhibit signs of stress when leaving the house
+              </p>
+              <p class="is-medium content">
+                Some common signs of separation anxiety include:
+              </p>
               <ul class="content is-medium">
                 <li>Barking</li>
                 <li>Scratching doors</li>
@@ -22,21 +28,23 @@
               <p
                 class="is-medium content"
               >
-              These nuisance behaviours are unpleasant for both owners and dogs. To cope with these problem behaviours owners can seek professional health, daycare arrangements or medications to relieve some of the stress the dog feels. These options are all helpful and all have their place. However, with steady incremental training, it is possible to train your dog to feel more confident when left alone.
-            </p>
+                These nuisance behaviours are unpleasant for both owners and dogs. To cope with these problem behaviours owners can seek professional health, daycare arrangements or medications to relieve some of the stress the dog feels. These options are all helpful and all have their place. However, with steady incremental training, it is possible to train your dog to feel more confident when left alone.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h2 class="title is-3">Training plan</h2>
+    <h2 class="title is-3">
+      Training plan
+    </h2>
     <div class="hero is-white">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-mobile">
             <div class="column is-one-fifth">
-              <img src="~/assets/backpack.svg" alt="backpack" height="50" />
+              <img src="~/assets/backpack.svg" alt="backpack" height="50">
             </div>
             <div class="column">
               <p
@@ -70,10 +78,32 @@
       </div>
     </div>
 
-    <h2 class="title is-4">Getting started with Training</h2>
+    <h2 class="title is-4">
+      Getting started with Training
+    </h2>
     <p
       class="is-medium content"
-    >We offer a step by step course that goes at the pace of you and your dog!</p>
-    <router-link to="/" class="button is-facebook is-medium content">Sign up to start training today!</router-link>
+    >
+      We offer a step by step course that goes at the pace of you and your dog!
+    </p>
+    <router-link to="/" class="button is-facebook is-medium content">
+      Sign up to start training today!
+    </router-link>
   </div>
 </template>
+<script>
+export default {
+  head () {
+    return {
+      title: 'Training Separation Anxiety in Dogs',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Training a dog that suffers from separation anxiety can be a daunting task. 53% of dog owners in the US believe that their dog has separation anxiety when left alone, with 61% saying their dogs exhibit signs of stress when leaving the house.'
+        }
+      ]
+    }
+  }
+}
+</script>
