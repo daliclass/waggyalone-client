@@ -114,7 +114,6 @@ export default {
       this.$router.push('/training/' + trainingSessionId)
     },
     skipMilestone () {
-      console.log('click')
       this.$store.dispatch('trainingPlan/skipMilestone')
     },
     previousMilestone () {

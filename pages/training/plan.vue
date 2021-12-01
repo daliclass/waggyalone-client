@@ -18,6 +18,12 @@ export default {
       return this.$store.state.dog.dog.id
     }
   },
+  head () {
+    return {
+      title: 'Training Home'
+    }
+  },
   middleware: ['authorization']
+
 }
 </script>

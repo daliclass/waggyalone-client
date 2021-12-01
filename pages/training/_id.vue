@@ -76,6 +76,11 @@ export default {
       return formatSecondsIntoTime(duration)
     }
   },
+  head () {
+    return {
+      title: 'Completed Training Overview'
+    }
+  },
   middleware: ['authorization']
 }
 </script>

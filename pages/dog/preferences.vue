@@ -26,6 +26,11 @@ import CoursePreferences from '../../components/dog/CoursePreferences'
 
 export default {
   components: { CoursePreferences, Hero },
+  head () {
+    return {
+      title: 'Dog Preferences',
+    }
+  },
   data () {
     return {
       dogName: 'David'
