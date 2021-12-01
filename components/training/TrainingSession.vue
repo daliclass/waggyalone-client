@@ -43,7 +43,7 @@ export default {
     },
     exerciseName () {
       const exercise = this.$store.state.trainingPlan.currentExercise
-      return exercise.exercise.action + ' in ' + exercise.exercise.location
+      return exercise.exercise.action
     },
     exerciseDescription () {
       const exercise = this.$store.state.trainingPlan.currentExercise
