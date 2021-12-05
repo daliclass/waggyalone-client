@@ -11,7 +11,6 @@
         <span />
       </div>
     </div>
-
     <div class="navbar-menu">
       <div v-if="loggedIn" class="navbar-start">
         <router-link
@@ -29,22 +28,24 @@
       </div>
 
       <div v-else class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <router-link
-              to="/"
-              class="button is-facebook"
-            >
-              Get Started
-            </router-link>
-          </div>
-        </div>
+        <router-link
+          to="/"
+          class="navbar-item"
+        >
+          Home
+        </router-link>
+        <nuxt-link v-scroll-to="{el: '#course'}" :to="{path: '/treating-separation-anxiety-in-dogs', hash: 'course'}" class="navbar-item">
+          Course
+        </nuxt-link>
+        <nuxt-link v-scroll-to="{el: '#trainers'}" :to="{path: '/treating-separation-anxiety-in-dogs', hash: 'trainers'}" class="navbar-item">
+          For Trainers
+        </nuxt-link>
       </div>
 
-      <div class="navbar-end">
+      <div v-if="loggedIn" class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a v-if="loggedIn" class="button is-info" @click="logout"> log out </a>
+            <a class="button is-info" @click="logout"> log out </a>
           </div>
         </div>
       </div>

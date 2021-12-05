@@ -9,7 +9,7 @@ export default {
   components: { About },
   head () {
     return {
-      title: 'About Dog',
+      title: 'About Dog'
     }
   },
   middleware: ['authorization']

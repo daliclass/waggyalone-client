@@ -9,7 +9,7 @@ export default {
   components: { TrainingOverview },
   head () {
     return {
-      title: 'Training Start',
+      title: 'Training Start'
     }
   },
   middleware: ['authorization']

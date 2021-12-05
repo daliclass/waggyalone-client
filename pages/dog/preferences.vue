@@ -26,11 +26,6 @@ import CoursePreferences from '../../components/dog/CoursePreferences'
 
 export default {
   components: { CoursePreferences, Hero },
-  head () {
-    return {
-      title: 'Dog Preferences',
-    }
-  },
   data () {
     return {
       dogName: 'David'
@@ -74,6 +69,11 @@ export default {
     },
     onSave () {
       this.$store.dispatch('preferences/save')
+    }
+  },
+  head () {
+    return {
+      title: 'Dog Preferences'
     }
   },
   middleware: ['authorization']
