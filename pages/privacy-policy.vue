@@ -18,12 +18,13 @@
 
     <p class="is-medium content">
       The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at WaggyAlone unless otherwise defined in this Privacy Policy.
-    </p><h2 class="subtitle is-4">
+    </p>
+    <h2 class="subtitle is-4">
       Information Collection and Use
     </h2>
 
     <p class="is-medium content">
-      For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to name,email,dogs name, dogs age, dogs breed, dogs gender. This information that Is stored on WaggyAlone servers.
+      For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to name,email,dogs name, dogs age, dogs breed, dogs gender. This information that Is stored on WaggyAlone servers. If for any reason you would like to have your data deleted from waggyalone please contact mark@waggyalone.com via email. We will remove your data asap.
     </p>
 
     <p class="is-medium content">
