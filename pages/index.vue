@@ -20,7 +20,7 @@
               Why us
             </nuxt-link>
             <nuxt-link v-scroll-to="{el: '#how-it-works'}" :to="{path: '/', hash: 'how-it-works'}" class="navbar-item">
-              how it works
+              How it works
             </nuxt-link>
             <nuxt-link v-scroll-to="{el: '#get-started'}" :to="{path: '/', hash: 'get-started'}" class="navbar-item">
               Get started
@@ -59,7 +59,6 @@
           </div>
         </div>
       </div>
-      </div>
     </section>
     <section id="why-us" class="hero is-info">
       <div class="hero-body">
@@ -90,7 +89,6 @@
           </div>
         </div>
       </div>
-      </div>
     </section>
     <section id="how-it-works" class="hero is-info">
       <div class="hero-body">
@@ -116,13 +114,15 @@
                   </li>
                 </ul>
               </p>
+              <router-link to="/treating-separation-anxiety-in-dogs" class="button is-warning is-medium content">
+                Find out more
+              </router-link>
             </div>
             <div class="column">
               <img src="../assets/dog-2.svg">
             </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
     <section id="get-started" class="hero is-info">
@@ -135,7 +135,7 @@
             To get started just press the button below to sign up with Facebook and you can get started right away
           </p>
           <p class="subtitle">
-            We know that different dogs take differing amounts of time to train and its best to go at your own pace. WaggyAlone is a free tool to help dogs and their owners.
+            We know that different dogs take differing amounts of time to train and its best to go at your own pace. WaggyAlone is a tool to help dogs and their owners.
           </p>
           <button class="button is-facebook is-medium" @click="continueWithFacebook">
             Login with Facebook
@@ -145,7 +145,6 @@
           </div>
           </br>
         </div>
-      </div>
       </div>
     </section>
     <section class="hero is-info">
@@ -161,7 +160,6 @@
             Ask a question
           </a>
         </div>
-      </div>
       </div>
     </section>
     <footer class="footer">

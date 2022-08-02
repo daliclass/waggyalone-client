@@ -94,6 +94,12 @@
               >
                 The final level, here we ramp up the increments we leave for. The sessions consist of three exercises, two short leaves, and a longer leave. Think visiting local cafes, going to the gym, seeing friends, etc. We also further lower the number of exercises but increase their durations.
               </p>
+              <h3 class="subtitle is-3">
+                What are you waiting for?
+              </h3>
+              <a class="button is-facebook is-large" href="/#get-started">
+                Start Training Today
+              </a>
             </div>
             <div class="column is-one-third">
               <img src="~/assets/exercise-example.png" alt="session overview">
@@ -139,72 +145,18 @@
         </div>
       </div>
     </div>
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-one-third has-background-white">
-            <h3 class="title is-3 plan_title has-text-weight-bold has-text-centered">
-              Basic Plan
-            </h3>
-            <h4 class="title is-4 has-text-weight-bold has-text-centered">
-              £15 <span class="has-text-weight-light">/month</span>
-            </h4>
-            <ul>
-              <li>Support up to 10 dogs concurrently</li>
-              <li>Monitor your clients progress</li>
-              <li>Provide professional insights and support</li>
-              <li>Notifications of your clients problem areas</li>
-              <li>Supports remote training</li>
-            </ul>
-          </div>
-          <div class="column is-one-third">
-            <h3 class="title is-3 plan_title has-text-weight-bold has-text-centered">
-              Premium Plan
-            </h3>
-            <h4 class="title is-4 has-text-weight-bold has-text-centered">
-              £30 <span class="has-text-weight-light">/month</span>
-            </h4>
-            <ul>
-              <li>Support up to 25 dogs concurrently</li>
-              <li>Monitor your clients progress</li>
-              <li>Provide professional insights and support</li>
-              <li>Notifications of your clients problem areas</li>
-              <li>Supports remote training</li>
-              <li>Customize the course for individual clients</li>
-            </ul>
-          </div>
-          <div class="column is-one-third has-background-white">
-            <h3 class="title is-3 plan_title has-text-weight-bold has-text-centered">
-              Custom Plan
-            </h3>
-            <h4 class="title is-4 has-text-weight-bold has-text-centered">
-              Contact for details
-            </h4>
-            <ul>
-              <li>Support up to X dogs concurrently</li>
-              <li>Monitor your clients progress</li>
-              <li>Provide professional insights and support</li>
-              <li>Notifications of your clients problem areas</li>
-              <li>Supports remote training</li>
-              <li>Customize the course for individual clients</li>
-              <li>Whitelabeling of WaggyAlone for your brand</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
     <div class="hero is-primary">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column">
               <h2 class="subtitle is-2">
-                Interested in one of our packages?
+                Interested in working with us?
               </h2>
               <p
                 class="is-medium content"
               >
-                Send us a message at <a href="mailto:mark@waggyalone.com">mark@waggyalone.com</a>. We would be delighted to work with you to find the best fit for your business.
+                Send us a message at <a href="mailto:mark@waggyalone.com">mark@waggyalone.com</a>. We would be delighted to work with you to find the best fit your training needs.
               </p>
             </div>
           </div>
