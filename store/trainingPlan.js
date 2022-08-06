@@ -30,7 +30,8 @@ export const state = () => ({
   currentExercise: null,
   completedTrainingSessionId: null,
   hasNextMilestone: false,
-  hasPreviousMilestone: false
+  hasPreviousMilestone: false,
+  hasActiveSubscription: false
 })
 
 export const mutations = {

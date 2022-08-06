@@ -10,6 +10,16 @@
                 <img src="~/assets/dog-2.svg" alt="Sa coach logo" height="50">
               </div>
               <div class="column">
+                <div class="notification is-primary">
+                  <h1 class="title has-text-white">Sign up today!</h1>
+                  <p class="is-medium content">
+                    It takes 3 months on average to train a dog to be home alone using WaggyAlone. Every dog
+                    learns at its own pace that's why we offer access for six months for the low cost of three coffees!
+                  </p>
+                  <a class="button is-info is-medium">
+                    Start training today!
+                  </a>
+                </div>
                 <h1 class="title">
                   {{ milestoneTitle }}
                 </h1>
@@ -27,7 +37,7 @@
                   </button>
                 </div>
                 <div class="buttons is-pulled-right">
-                  <button class="button is-primary is-medium" @click="startTrainingSession">
+                  <button class="button is-primary is-medium" @click="startTrainingSession" :disabled="!hasActiveSubscription">
                     Start training
                   </button>
                 </div>
@@ -98,6 +108,9 @@ export default {
     },
     hasPreviousMilestone () {
       return this.$store.state.trainingPlan.hasPreviousMilestone
+    },
+    hasActiveSubscription () {
+      return this.$store.state.trainingPlan.hasActiveSubscription
     }
   },
   created () {
