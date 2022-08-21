@@ -5,21 +5,17 @@
       <div class="hero is-white">
         <div class="hero-body">
           <div class="container">
+          <TrainingUpSeller
+            v-show="!hasPurchasedCourse"
+            :remainingTrainingSessions=remainingTrainingSessions
+            :purchaseCourse=purchaseCourse
+            >
+          </TrainingUpSeller>
             <div class="columns is-mobile">
               <div class="column is-one-fifth">
                 <img src="~/assets/dog-2.svg" alt="Sa coach logo" height="50">
               </div>
               <div class="column">
-                <div class="notification is-primary">
-                  <h1 class="title has-text-white">Sign up today!</h1>
-                  <p class="is-medium content">
-                    It takes 3 months on average to train a dog to be home alone using WaggyAlone. Every dog
-                    learns at its own pace that's why we offer access for six months for the low cost of three coffees!
-                  </p>
-                  <a class="button is-info is-medium">
-                    Start training today!
-                  </a>
-                </div>
                 <h1 class="title">
                   {{ milestoneTitle }}
                 </h1>
@@ -27,17 +23,17 @@
                   {{ paragraph }}
                 </h2>
                 <div v-if="hasNextMilestone" class="buttons is-pulled-right">
-                  <button class="button is-info is-medium" @click="skipMilestone">
+                  <button class="button is-info is-medium" @click="skipMilestone" :disabled="!hasCourseAccess">
                     Skip milestone
                   </button>
                 </div>
                 <div v-if="hasPreviousMilestone" class="buttons is-pulled-right">
-                  <button class="button is-info is-medium" @click="previousMilestone">
+                  <button class="button is-info is-medium" @click="previousMilestone" :disabled="!hasCourseAccess">
                     Previous milestone
                   </button>
                 </div>
                 <div class="buttons is-pulled-right">
-                  <button class="button is-primary is-medium" @click="startTrainingSession" :disabled="!hasActiveSubscription">
+                  <button class="button is-primary is-medium" @click="startTrainingSession" :disabled="!hasCourseAccess">
                     Start training
                   </button>
                 </div>
@@ -78,9 +74,10 @@
 import Grade from '../common/Grade'
 import Loading from '../common/Loading'
 import { formatSecondsIntoTime } from '../../store/timer'
+import TrainingUpSeller from './upgrade/TrainingUpSeller'
 
 export default {
-  components: { Grade, Loading },
+  components: { Grade, Loading, TrainingUpSeller },
   computed: {
     isLoading () {
       return this.milestoneTitle === null
@@ -109,8 +106,20 @@ export default {
     hasPreviousMilestone () {
       return this.$store.state.trainingPlan.hasPreviousMilestone
     },
-    hasActiveSubscription () {
-      return this.$store.state.trainingPlan.hasActiveSubscription
+    remainingTrainingSessions () {
+      const trainingSessions = this.$store.state.trainingPlan.trainingSessions
+      if (trainingSessions === null) {
+        return 0
+      } else {
+        return 10 - trainingSessions.length
+      }
+    },
+    hasCourseAccess () {
+      const trainingSessions = this.$store.state.trainingPlan.trainingSessions
+      return this.$store.state.authorization.user.hasPurchasedCourse || trainingSessions.length < 10
+    },
+    hasPurchasedCourse () {
+      return this.$store.state.authorization.user.hasPurchasedCourse
     }
   },
   created () {
@@ -131,6 +140,9 @@ export default {
     },
     previousMilestone () {
       this.$store.dispatch('trainingPlan/previousMilestone')
+    },
+    purchaseCourse () {
+      this.$store.dispatch('authorization/purchaseCourse')
     }
   }
 }

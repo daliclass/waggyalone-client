@@ -1,7 +1,8 @@
 export const state = () => ({
   user: null,
   userErrorAuthenticating: false,
-  loggedIn: false
+  loggedIn: false,
+  upgraded: null
 })
 
 export const mutations = {
@@ -16,6 +17,9 @@ export const mutations = {
   logout (state) {
     state.user = null
     state.loggedIn = false
+  },
+  upgradeSuccess (state) {
+    state.upgraded = true
   }
 }
 
@@ -74,5 +78,25 @@ export const actions = {
   },
   logout (context) {
     context.commit('logout')
+  },
+  purchaseCourse ({ rootState }) {
+    const axios = this.$axios
+    const userId = rootState.authorization.user.id
+    axios.$get('/api/create-checkout-session/' + userId)
+      .then(function (response) {
+        window.location.href = response.checkoutUrl
+      })
+  },
+  upgradeSuccess ({ commit }, userUuid) {
+    const router = this.$router
+    const axios = this.$axios
+    axios.$post('/api/purchased/' + userUuid)
+      .then(function (response) {
+        console.log('UPGRADED ' + userUuid)
+        commit('upgradeSuccess')
+      }).catch(function (error) {
+        console.log(error)
+        router.push('/training/upgrade/cancel')
+      })
   }
 }
