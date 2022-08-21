@@ -110,8 +110,12 @@ export default {
       const trainingSessions = this.$store.state.trainingPlan.trainingSessions
       if (trainingSessions === null) {
         return 0
+      }
+      const remainingTrainingSessions = 10 - trainingSessions.length
+      if (remainingTrainingSessions < 0) {
+        return 0
       } else {
-        return 10 - trainingSessions.length
+        return remainingTrainingSessions
       }
     },
     hasCourseAccess () {
