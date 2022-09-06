@@ -111,7 +111,7 @@ export default {
       if (trainingSessions === null) {
         return 0
       }
-      const remainingTrainingSessions = 10 - trainingSessions.length
+      const remainingTrainingSessions = 5 - trainingSessions.length
       if (remainingTrainingSessions < 0) {
         return 0
       } else {
@@ -120,7 +120,7 @@ export default {
     },
     hasCourseAccess () {
       const trainingSessions = this.$store.state.trainingPlan.trainingSessions
-      return this.$store.state.authorization.user.hasPurchasedCourse || trainingSessions.length < 10
+      return this.$store.state.authorization.user.hasPurchasedCourse || trainingSessions.length < 5
     },
     hasPurchasedCourse () {
       return this.$store.state.authorization.user.hasPurchasedCourse
