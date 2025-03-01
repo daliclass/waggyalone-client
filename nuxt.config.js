@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -31,7 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
-    'bulma-social/bin/bulma-social.min.css'
+    '~/assets/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -43,19 +43,15 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/auth-next',
   ],
   /*
   ** Axios module configuration
@@ -68,9 +64,19 @@ export default {
   proxy: {
     '/api/': process.env.SERVER_URL || 'http://localhost:8080'
   },
-  /*
-  ** Build configuration
-  */
+
+  auth: {
+    strategies: {
+      auth0: {
+        domain: 'waggyalone-staging.eu.auth0.com',
+        clientId: process.env.AUTH_CLIENT_ID || '',
+        audience: process.env.AUTH_AUDIUENCE || '',
+        redirectUri: process.env.AUTH_REDIRECT_URI || 'http://10.0.0.219:3000/callback', // Ensure this matches your Auth0 settings
+        logoutRedirectUri: process.env.AUTH_LOGIN_REDIRECT_URI || 'http://10.0.0.219:3000/logout'
+      }
+    }
+  },
+
   build: {
     postcss: {
       preset: {

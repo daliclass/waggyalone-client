@@ -21,12 +21,14 @@
           </tr>
         </tbody>
       </table>
-      <button class="button is-info is-medium" @click="goToOverview">
-        Back to overview
-      </button>
-      <button class="button is-primary is-medium" @click="goToSession">
-        Start session
-      </button>
+      <section class="buttons is-flex is-justify-content-space-between mb-4">
+        <button class="button is-info is-medium is-light" @click="goToOverview">
+          Back to overview
+        </button>
+        <button class="button is-primary is-large is-light" @click="goToSession">
+          Start session
+        </button>
+      </section>
     </div>
   </section>
 </template>

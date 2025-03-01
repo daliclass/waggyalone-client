@@ -1,8 +1,9 @@
 <template>
   <div class="container is-centered">
-    <div class="hero is-info">
+    <div class="hero">
       <div class="hero-body">
         <div class="container">
+          <h1 class="title is-1">Our approach for training your dog to be home alone</h1>
           <div class="columns is-vcentered">
             <div class="column">
               <h2 class="subtitle is-2">
@@ -32,7 +33,7 @@
       </div>
     </div>
 
-    <div class="hero is-primary">
+    <div class="hero">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
@@ -97,7 +98,7 @@
               <h3 class="subtitle is-3">
                 What are you waiting for?
               </h3>
-              <a class="button is-facebook is-large" href="/#get-started">
+              <a class="button is-light is-large" href="/#get-started">
                 Start Training Today
               </a>
             </div>
@@ -109,7 +110,7 @@
       </div>
     </div>
 
-    <div class="hero is-info">
+    <div class="hero">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
@@ -145,7 +146,7 @@
         </div>
       </div>
     </div>
-    <div class="hero is-primary">
+    <div class="hero">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">

@@ -9,9 +9,10 @@
         <span />
         <span />
         <span />
+        <span />
       </div>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu is-justify-content-space-between">
       <div v-if="loggedIn" class="navbar-start">
         <router-link
           to="/training/plan"
@@ -44,8 +45,11 @@
 
       <div v-if="loggedIn" class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-info" @click="logout"> log out </a>
+          <div v-if="loggedIn" class="buttons">
+            <a class="button is-info is-light" @click="logout"> Log out </a>
+          </div>
+          <div v-if="!loggedIn" class="buttons">
+            <a class="button is-primary is-light" @click="continueWith"> Log in </a>
           </div>
         </div>
       </div>

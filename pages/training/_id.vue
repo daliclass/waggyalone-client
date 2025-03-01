@@ -29,7 +29,7 @@
             </tbody>
           </table>
         </div>
-        <button class="button is-info is-medium" @click="goToOverview">
+        <button class="button is-primary is-light is-large mb-4" @click="goToOverview">
           Back to overview
         </button>
       </div>

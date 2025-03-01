@@ -2,7 +2,7 @@
   <section>
     <Loading v-if="isLoading" />
     <section v-else>
-      <div class="hero is-white">
+      <div class="hero">
         <div class="hero-body">
           <div class="container">
           <TrainingUpSeller
@@ -22,18 +22,18 @@
                 <h2 v-for="paragraph in milestoneDescription" :key="paragraph" class="subtitle">
                   {{ paragraph }}
                 </h2>
-                <div v-if="hasNextMilestone" class="buttons is-pulled-right">
-                  <button class="button is-info is-medium" @click="skipMilestone" :disabled="!hasCourseAccess">
+                <div v-if="hasNextMilestone" class="buttons is-pulled-right mr-2">
+                  <button class="button is-info is-medium is-light" @click="skipMilestone" :disabled="!hasCourseAccess">
                     Skip milestone
                   </button>
                 </div>
-                <div v-if="hasPreviousMilestone" class="buttons is-pulled-right">
-                  <button class="button is-info is-medium" @click="previousMilestone" :disabled="!hasCourseAccess">
+                <div v-if="hasPreviousMilestone" class="buttons is-pulled-right mr-2">
+                  <button class="button is-info is-medium is-light" @click="previousMilestone" :disabled="!hasCourseAccess">
                     Previous milestone
                   </button>
                 </div>
-                <div class="buttons is-pulled-right">
-                  <button class="button is-primary is-medium" @click="startTrainingSession" :disabled="!hasCourseAccess">
+                <div class="buttons is-pulled-right mr-2">
+                  <button class="button is-primary is-medium is-light" @click="startTrainingSession" :disabled="!hasCourseAccess">
                     Start training
                   </button>
                 </div>
@@ -58,7 +58,7 @@
               <td>{{ trainingSession.details.title }}</td>
               <td>{{ formatTime(trainingSession.exercises) }}</td>
               <td>
-                <button class="button is-info" @click="reviewSession(trainingSession.id)">
+                <button class="button is-info is-light" @click="reviewSession(trainingSession.id)">
                   View
                 </button>
               </td>

@@ -10,7 +10,7 @@
         Login again to access to course! Thank you for supporting the work we do and helping us help more people.
         We would love to hear more from you, please reach out over email if we can assist your training in anyway mark@waggyalone.com.
       </p>
-      <button class="button is-facebook is-medium" @click="continueWithFacebook">
+      <button class="button is-facebook is-medium" @click="continueWith">
         Login with Facebook
       </button>
     </div>
@@ -31,11 +31,11 @@ export default {
     }
   },
   methods: {
-    continueWithFacebook () {
+    continueWith() {
       if (this.loggedIn) {
         this.$router.push('/training/plan')
       } else {
-        this.$store.dispatch('authorization/continueWithFacebook')
+        this.$store.dispatch('authorization/continueWith')
       }
     }
   }

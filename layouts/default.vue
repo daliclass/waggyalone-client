@@ -15,7 +15,6 @@
         </p>
       </div>
     </footer>
-    </br>
   </div>
 </template>
 
