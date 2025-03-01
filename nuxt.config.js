@@ -70,7 +70,7 @@ export default {
       auth0: {
         domain: 'waggyalone-staging.eu.auth0.com',
         clientId: process.env.AUTH_CLIENT_ID || '',
-        audience: process.env.AUTH_AUDIUENCE || '',
+        audience: process.env.AUTH_AUDIUENCE || 't',
         redirectUri: process.env.AUTH_REDIRECT_URI || 'http://10.0.0.219:3000/callback', // Ensure this matches your Auth0 settings
         logoutRedirectUri: process.env.AUTH_LOGIN_REDIRECT_URI || 'http://10.0.0.219:3000/logout'
       }
@@ -92,6 +92,6 @@ export default {
     }
   },
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0', port: process.env.PORT || 3000
   }
 }
