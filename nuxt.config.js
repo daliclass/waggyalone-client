@@ -11,7 +11,6 @@ export default {
       { hid: 'description', name: 'description', content: 'Helping owners train their dogs to be happy when left home alone. Puppy or grown-up this course is here to provide guidance, tips and support.' }
     ],
     script: [
-      { src: '/js/fb-sdk.js' },
       {
         src: 'https://www.googletagmanager.com/gtag/js?id=G-921YK5Z1EV',
         async: true
@@ -68,7 +67,7 @@ export default {
     strategies: {
       auth0: {
         domain: 'waggyalone-staging.eu.auth0.com',
-        clientId: process.env.AUTH_CLIENT_ID,
+        clientId: process.env.CLIENT_ID,
         audience: process.env.AUTH_AUDIENCE,
         redirectUri: process.env.AUTH_REDIRECT_URI,
         logoutRedirectUri: process.env.AUTH_LOGIN_REDIRECT_URI
