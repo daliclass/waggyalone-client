@@ -1,3 +1,8 @@
+console.log(process.env.CLIENT_ID)
+console.log(process.env.AUTH_AUDIENCE)
+console.log(process.env.AUTH_REDIRECT_URI)
+console.log(process.env.AUTH_LOGIN_REDIRECT_URI)
+
 export default {
   mode: 'spa',
   /*
