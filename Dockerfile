@@ -8,8 +8,6 @@ COPY . .
 
 RUN npm install
 
-RUN npm run build
-
 EXPOSE 3000
 
-CMD sh -c "npm run start"
+CMD sh -c "npm run build & npm run start"
