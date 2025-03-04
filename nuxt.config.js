@@ -71,7 +71,7 @@ export default {
   auth: {
     strategies: {
       auth0: {
-        domain: 'waggyalone-staging.eu.auth0.com',
+        domain: process.env.AUTH_DOMAIN,
         clientId: process.env.CLIENT_ID,
         audience: process.env.AUTH_AUDIENCE,
         redirectUri: process.env.AUTH_REDIRECT_URI,
