@@ -7,12 +7,12 @@
     <div v-else>
       <h1 class="title is-3"> Your payment was successful </h1>
       <p class="is-medium content">
-        Login again to access to course! Thank you for supporting the work we do and helping us help more people.
+        Thank you for supporting the work we do and helping us help more people.
         We would love to hear more from you, please reach out over email if we can assist your training in anyway mark@waggyalone.com.
       </p>
-      <button class="button is-facebook is-medium" @click="continueWith">
-        Login with Facebook
-      </button>
+      <div v-if="!loggedIn" class="buttons">
+          <a class="button is-primary is-light" @click="continueWith">Continue your training</a>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    continueWith() {
+    continueWith () {
       if (this.loggedIn) {
         this.$router.push('/training/plan')
       } else {
