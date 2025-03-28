@@ -2,69 +2,49 @@
   <section>
     <div class="field">
       <div class="control">
-        <input
-          :class="[nameError ? 'is-info' : '', 'input is-medium']"
-          type="text"
-          placeholder="Name"
-          :value="dog.name"
-          @input="nameChanged"
-        >
+        <input :class="[nameError ? 'is-info' : '', 'input is-medium']" type="text" placeholder="Name" :value="dog.name"
+          @input="nameChanged">
       </div>
     </div>
     <div class="field">
       <div class="control">
-        <input
-          :class="[birthMonthError ? 'is-info' : '', 'input is-medium']"
-          type="number"
-          min="1"
-          max="12"
-          placeholder="Birth month 1-12"
-          :value="dog.birthMonth"
-          @input="birthMonthChanged"
-        >
+        <input :class="[birthMonthError ? 'is-info' : '', 'input is-medium']" type="number" min="1" max="12"
+          placeholder="Birth month 1-12" :value="dog.birthMonth" @input="birthMonthChanged">
       </div>
     </div>
     <div class="field">
       <div class="control">
-        <input
-          :class="[birthYearError ? 'is-info' : '', 'input is-medium']"
-          type="number"
-          min="1990"
-          max="2050"
-          placeholder="Birth year ie 2006"
-          :value="dog.birthYear"
-          @input="birthYearChanged"
-        >
+        <input :class="[birthYearError ? 'is-info' : '', 'input is-medium']" type="number" min="1990" max="2050"
+          placeholder="Birth year ie 2006" :value="dog.birthYear" @input="birthYearChanged">
       </div>
     </div>
     <div class="field">
       <div class="control">
-        <input
-          :class="[breedError ? 'is-info' : '', 'input is-medium']"
-          type="text"
-          placeholder="Breed"
-          :value="dog.breed"
-          @input="breedChanged"
-        >
+        <input :class="[breedError ? 'is-info' : '', 'input is-medium']" type="text" placeholder="Breed"
+          :value="dog.breed" @input="breedChanged">
       </div>
     </div>
-    <SelectOption
-      key="gender"
-      question="What gender is your dog?"
-      :options="genderOptions"
-      :on-change="genderChanged"
-      :selected-value="dog.gender"
-    />
+    <SelectOption key="gender" question="What gender is your dog?" :options="genderOptions" :on-change="genderChanged"
+      :selected-value="dog.gender" />
+    </br>
+    <div class="notification is-primary is-light">
+      If you are working with a dog trainer to help train your dog please add there email below. With this we
+      will send them weekly updates on your dog's progress and they can use that to inform there training plan for you.
+    </div>
+    <div class="field">
+      <div class="control">
+        <input :class="[nameError ? 'is-info' : '', 'input is-medium']" type="text" placeholder="Trainer email" :value="dog.trainerEmail"
+          @input="trainerEmailChanged">
+      </div>
+    </div>
     </br>
     <div v-show="showErrorMessage" class="notification is-info">
       <p> We need to know a bit more about your dog please will in the highlighted fields </p>
     </div>
-    <button class="button is-primary is-medium" @click="addDog">
+    <button class="button is-primary is-medium is-light" @click="addDog">
       Add dog
     </button>
-    </div>
-    </div>
-    </div>
+    <br />
   </section>
 </template>
 
@@ -80,9 +60,10 @@ export default {
     birthMonthChange: Function,
     birthYearChange: Function,
     breedChange: Function,
-    genderChange: Function
+    genderChange: Function,
+    trainerEmailChange: Function
   },
-  data () {
+  data() {
     return {
       nameError: false,
       birthMonthError: false,
@@ -96,22 +77,25 @@ export default {
   computed: {
   },
   methods: {
-    nameChanged (updatedValue) {
+    nameChanged(updatedValue) {
       this.nameChange(updatedValue.target.value)
     },
-    birthMonthChanged (updatedValue) {
+    birthMonthChanged(updatedValue) {
       this.birthMonthChange(updatedValue.target.value)
     },
-    birthYearChanged (updatedValue) {
+    birthYearChanged(updatedValue) {
       this.birthYearChange(updatedValue.target.value)
     },
-    breedChanged (updatedValue) {
+    breedChanged(updatedValue) {
       this.breedChange(updatedValue.target.value)
     },
-    genderChanged (updatedValue) {
+    genderChanged(updatedValue) {
       this.genderChange(updatedValue.target.value)
     },
-    addDog () {
+    trainerEmailChanged(updatedValue) {
+      this.trainerEmailChange(updatedValue.target.value)
+    },
+    addDog() {
       if (this.dog.name.length === 0) {
         this.nameError = true
       } else {

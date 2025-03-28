@@ -111,7 +111,7 @@ export default {
       if (trainingSessions === null) {
         return 0
       }
-      const remainingTrainingSessions = 5 - trainingSessions.length
+      const remainingTrainingSessions = 3 - trainingSessions.length
       if (remainingTrainingSessions < 0) {
         return 0
       } else {

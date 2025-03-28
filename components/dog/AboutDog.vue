@@ -14,6 +14,7 @@
         :birth-year-change="birthYearChange"
         :breed-change="breedChange"
         :gender-change="genderChange"
+        :trainer-email-change="trainerEmailChange"
       />
     </div>
   </section>
@@ -48,6 +49,9 @@ export default {
     },
     genderChange (updatedValue) {
       this.$store.dispatch('dog/setGender', updatedValue)
+    },
+    trainerEmailChange (updatedValue) {
+      this.$store.dispatch('dog/setTrainerEmail', updatedValue)
     }
   }
 }

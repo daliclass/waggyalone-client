@@ -36,7 +36,7 @@
     </p>
 
     <p class="is-medium content">
-      Facebook
+      Auth0
     </p>
 
     <h2 class="subtitle is-4">
