@@ -28,8 +28,7 @@
       :selected-value="dog.gender" />
     </br>
     <div class="notification is-primary is-light">
-      If you are working with a dog trainer to help train your dog please add there email below. With this we
-      will send them weekly updates on your dog's progress and they can use that to inform there training plan for you.
+      Working with a dog trainer? Add their email below and we’ll send them weekly updates on your dog’s progress. This helps them tailor their training plan to better support you and your pup.
     </div>
     <div class="field">
       <div class="control">
